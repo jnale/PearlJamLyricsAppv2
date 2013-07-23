@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s206</id>
+            <trackNumber>01</trackNumber>
+            <title>Santa Cruz</title>
+            <lenght>3:51</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s207</id>
+            <trackNumber>02</trackNumber>
+            <title>Golden State</title>
+            <lenght>2:44</lenght>
+            <composer>Doe</composer>
+      </song>
+</songs>

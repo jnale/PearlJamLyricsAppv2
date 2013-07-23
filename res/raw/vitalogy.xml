@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s24</id>
+            <trackNumber>01</trackNumber>
+            <title>Last Exit</title>
+            <lenght>2:55</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s25</id>
+            <trackNumber>02</trackNumber>
+            <title>Spin The Black Circle</title>
+            <lenght>2:48</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s26</id>
+            <trackNumber>03</trackNumber>
+            <title>Not For You</title>
+            <lenght>5:52</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s27</id>
+            <trackNumber>04</trackNumber>
+            <title>Tremor Christ</title>
+            <lenght>4:12</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s28</id>
+            <trackNumber>05</trackNumber>
+            <title>Nothingman</title>
+            <lenght>4:35</lenght>
+            <composer>Ament/Vedder</composer>
+      </song>
+      <song>
+            <id>s29</id>
+            <trackNumber>06</trackNumber>
+            <title>Whipping</title>
+            <lenght>2:34</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s30</id>
+            <trackNumber>07</trackNumber>
+            <title>Pry, To</title>
+            <lenght>1:03</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s31</id>
+            <trackNumber>08</trackNumber>
+            <title>Corduroy</title>
+            <lenght>4:37</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s32</id>
+            <trackNumber>09</trackNumber>
+            <title>Bugs</title>
+            <lenght>2:45</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s33</id>
+            <trackNumber>10</trackNumber>
+            <title>Satan's Bed</title>
+            <lenght>3:31</lenght>
+            <composer>Gossard</composer>
+      </song>
+      <song>
+            <id>s34</id>
+            <trackNumber>11</trackNumber>
+            <title>Better Man</title>
+            <lenght>4:28</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s35</id>
+            <trackNumber>12</trackNumber>
+            <title>Aye Davanita</title>
+            <lenght>2:58</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s36</id>
+            <trackNumber>13</trackNumber>
+            <title>Immortality</title>
+            <lenght>5:29</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s37</id>
+            <trackNumber>14</trackNumber>
+            <title>Hey Foxymophandlemama, That's Me</title>
+            <lenght>7:43</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Abbruzzese</composer>
+      </song>
+</songs>

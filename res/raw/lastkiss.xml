@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s203</id>
+            <trackNumber>01</trackNumber>
+            <title>Last Kiss</title>
+            <lenght>3:17</lenght>
+            <composer>Cochran</composer>
+      </song>
+      <song>
+            <id>s204</id>
+            <trackNumber>02</trackNumber>
+            <title>Soldier Of Love</title>
+            <lenght>2:54</lenght>
+            <composer>Moon/Cason</composer>
+      </song>
+</songs>

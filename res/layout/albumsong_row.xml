@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dip" >
+
+    <!-- Number Of Song-->
+    <TextView
+        android:id="@+id/songNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:padding="10dp"
+        android:background="@color/light_blue"/>
+    
+    <!-- Name Of Song-->
+ 	 <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/songNumber"
+        android:layout_toRightOf="@+id/songNumber"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="18sp" />
+ 
+    <!-- Song Composer -->
+    <TextView
+        android:id="@+id/songComposer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/songTitle"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/songNumber"
+        android:textColor="#666"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/addToFavIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingTop="20dp"
+        android:src="@drawable/ic_add_fav_small" />
+
+</RelativeLayout>

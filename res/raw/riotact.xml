@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s77</id>
+            <trackNumber>01</trackNumber>
+            <title>Can't Keep</title>
+            <lenght>3:39</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s78</id>
+            <trackNumber>02</trackNumber>
+            <title>Save You</title>
+            <lenght>3:50</lenght>
+            <composer>Vedder/McCready/Gossard/Ament/Cameron</composer>
+      </song>
+      <song>
+            <id>s79</id>
+            <trackNumber>03</trackNumber>
+            <title>Love Boat Captain</title>
+            <lenght>4:36</lenght>
+            <composer>Vedder/Gaspar</composer>
+      </song>
+      <song>
+            <id>s80</id>
+            <trackNumber>04</trackNumber>
+            <title>Cropduster</title>
+            <lenght>3:52</lenght>
+            <composer>Vedder/Cameron</composer>
+      </song>
+      <song>
+            <id>s81</id>
+            <trackNumber>05</trackNumber>
+            <title>Ghost</title>
+            <lenght>3:15</lenght>
+            <composer>Ament/Vedder</composer>
+      </song>
+      <song>
+            <id>s82</id>
+            <trackNumber>06</trackNumber>
+            <title>I Am Mine</title>
+            <lenght>3:36</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s83</id>
+            <trackNumber>07</trackNumber>
+            <title>Thumbing My Way</title>
+            <lenght>4:10</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s84</id>
+            <trackNumber>08</trackNumber>
+            <title>You Are</title>
+            <lenght>4:31</lenght>
+            <composer>Cameron/Vedder</composer>
+      </song>
+      <song>
+            <id>s85</id>
+            <trackNumber>09</trackNumber>
+            <title>Get Right</title>
+            <lenght>2:39</lenght>
+            <composer>Cameron</composer>
+      </song>
+      <song>
+            <id>s86</id>
+            <trackNumber>10</trackNumber>
+            <title>Green Disease</title>
+            <lenght>2:41</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s87</id>
+            <trackNumber>11</trackNumber>
+            <title>Help Help</title>
+            <lenght>3:35</lenght>
+            <composer>Ament</composer>
+      </song>
+      <song>
+            <id>s88</id>
+            <trackNumber>12</trackNumber>
+            <title>Bu$hleaguer</title>
+            <lenght>3:57</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s89</id>
+            <trackNumber>13</trackNumber>
+            <title>&#189; Full</title>
+            <lenght>4:11</lenght>
+            <composer>Vedder/Ament</composer>
+      </song>
+      <song>
+            <id>s90</id>
+            <trackNumber>14</trackNumber>
+            <title>Arc</title>
+            <lenght>1:05</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s91</id>
+            <trackNumber>15</trackNumber>
+            <title>All Or None</title>
+            <lenght>4:38</lenght>
+            <composer>Gossard/Vedder</composer>
+      </song>
+</songs>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s333</id>
+            <trackNumber>01</trackNumber>
+            <title>Setting Forth</title>
+            <lenght>1:37</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s334</id>
+            <trackNumber>02</trackNumber>
+            <title>No Ceiling</title>
+            <lenght>1:34</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s335</id>
+            <trackNumber>03</trackNumber>
+            <title>Far Behind</title>
+            <lenght>2:15</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s336</id>
+            <trackNumber>04</trackNumber>
+            <title>Rise</title>
+            <lenght>2:36</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s337</id>
+            <trackNumber>05</trackNumber>
+            <title>Long Nights</title>
+            <lenght>2:31</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s338</id>
+            <trackNumber>06</trackNumber>
+            <title>Tuolumne</title>
+            <lenght>1:00</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s339</id>
+            <trackNumber>07</trackNumber>
+            <title>Hard Sun</title>
+            <lenght>5:21</lenght>
+            <composer>Peterson</composer>
+      </song>
+      <song>
+            <id>s340</id>
+            <trackNumber>08</trackNumber>
+            <title>Society</title>
+            <lenght>3:56</lenght>
+            <composer>Hannan</composer>
+      </song>
+      <song>
+            <id>s341</id>
+            <trackNumber>09</trackNumber>
+            <title>The Wolf</title>
+            <lenght>1:32</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s342</id>
+            <trackNumber>10</trackNumber>
+            <title>End Of The Road</title>
+            <lenght>3:19</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s343</id>
+            <trackNumber>11</trackNumber>
+            <title>Guaranteed</title>
+            <lenght>7:22</lenght>
+            <composer>Vedder</composer>
+      </song>
+</songs>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/albumRowLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:orientation="vertical">
+    <!-- album cover image -->
+    <com.juannale.pearljamlyricsv2.widget.SquareImageView 
+        android:contentDescription="@string/album_image"
+        android:id="@+id/albumCover"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        />
+
+    <!-- album data layout -->
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="60dp"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:background="@color/semi_transparent"
+	    android:orientation="vertical" >
+		
+		<!-- album title -->
+	    <TextView android:id="@+id/albumTitle" 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="3dp"
+	        android:layout_marginLeft="5dp"
+	        android:textColor="@android:color/white"/>
+	
+	    <!-- album year and label -->
+	    <TextView android:id="@+id/albumYearAndLabel" 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:textColor="@android:color/white"/>
+	</LinearLayout>
+
+</RelativeLayout>

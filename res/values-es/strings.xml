@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pearl Jam Lyrics v2</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_favorites">Favoritos</string>
+    <string name="action_songList">Lista de Temas</string>
+    <string name="lyricsError">La letra de la canción seleccionada no esta disponible por el momento&#8230;</string>
+    <string name="error_player">There was an error initializing the YouTube video</string>
+    
+    <string name="album_image">portada de álbum</string>
+    <string-array name="album_tabs">
+        <item>estudio</item>
+		<item>singles</item>
+		<item>otros</item>
+	</string-array>
+
+</resources>

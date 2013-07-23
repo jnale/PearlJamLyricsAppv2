@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s304</id>
+            <trackNumber>1-01</trackNumber>
+            <title>All Night</title>
+            <lenght>3:22</lenght>
+            <composer>Ament/Gossard/Irons/McCready/Vedder</composer>
+      </song>
+      <song>
+            <id>s305</id>
+            <trackNumber>1-02</trackNumber>
+            <title>Sad</title>
+            <lenght>3:39</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s306</id>
+            <trackNumber>1-03</trackNumber>
+            <title>Down</title>
+            <lenght>3:15</lenght>
+            <composer>Gossard/McCready/Vedder</composer>
+      </song>
+      <song>
+            <id>s307</id>
+            <trackNumber>1-04</trackNumber>
+            <title>Hitchhiker</title>
+            <lenght>3:17</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s308</id>
+            <trackNumber>1-05</trackNumber>
+            <title>Don't Gimme No Lip</title>
+            <lenght>2:35</lenght>
+            <composer>Gossard</composer>
+      </song>
+      <song>
+            <id>s309</id>
+            <trackNumber>1-06</trackNumber>
+            <title>Alone</title>
+            <lenght>3:12</lenght>
+            <composer>Abbruzzese/Ament/Gossard/McCready/Vedder</composer>
+      </song>
+      <song>
+            <id>s310</id>
+            <trackNumber>1-07</trackNumber>
+            <title>In The Moonlight</title>
+            <lenght>3:08</lenght>
+            <composer>Cameron</composer>
+      </song>
+      <song>
+            <id>s311</id>
+            <trackNumber>1-08</trackNumber>
+            <title>Education</title>
+            <lenght>2:46</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s312</id>
+            <trackNumber>1-09</trackNumber>
+            <title>Black, Red, Yellow</title>
+            <lenght>3:26</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s313</id>
+            <trackNumber>1-10</trackNumber>
+            <title>U</title>
+            <lenght>2:54</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s314</id>
+            <trackNumber>1-11</trackNumber>
+            <title>Leavin' Here</title>
+            <lenght>2:52</lenght>
+            <composer>B.Holland/Dozier/E.Holland</composer>
+      </song>
+      <song>
+            <id>s315</id>
+            <trackNumber>1-12</trackNumber>
+            <title>Gremmie Out of Control</title>
+            <lenght>2:26</lenght>
+            <composer>Haskel</composer>
+      </song>
+      <song>
+            <id>s316</id>
+            <trackNumber>1-13</trackNumber>
+            <title>Whale Song</title>
+            <lenght>3:35</lenght>
+            <composer>Irons</composer>
+      </song>
+      <song>
+            <id>s317</id>
+            <trackNumber>1-14</trackNumber>
+            <title>Undone</title>
+            <lenght>3:10</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s318</id>
+            <trackNumber>1-15</trackNumber>
+            <title>Hold On</title>
+            <lenght>4:23</lenght>
+            <composer>Gossard/Vedder</composer>
+      </song>
+      <song>
+            <id>s319</id>
+            <trackNumber>1-16</trackNumber>
+            <title>Yellow Ledbetter</title>
+            <lenght>5:01</lenght>
+            <composer>Ament/McCready/Vedder</composer>
+      </song>
+      <song>
+            <id>s320</id>
+            <trackNumber>2-01</trackNumber>
+            <title>Fatal</title>
+            <lenght>3:39</lenght>
+            <composer>Gossard</composer>
+      </song>
+      <song>
+            <id>s321</id>
+            <trackNumber>2-02</trackNumber>
+            <title>Other Side</title>
+            <lenght>4:04</lenght>
+            <composer>Ament</composer>
+      </song>
+      <song>
+            <id>s322</id>
+            <trackNumber>2-03</trackNumber>
+            <title>Hard To Imagine</title>
+            <lenght>4:36</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s323</id>
+            <trackNumber>2-04</trackNumber>
+            <title>Footsteps</title>
+            <lenght>3:55</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s324</id>
+            <trackNumber>2-05</trackNumber>
+            <title>Wash</title>
+            <lenght>3:49</lenght>
+            <composer>Vedder/Gossard/Ament/McCready/Krusen</composer>
+      </song>
+      <song>
+            <id>s325</id>
+            <trackNumber>2-06</trackNumber>
+            <title>Dead Man</title>
+            <lenght>4:16</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s326</id>
+            <trackNumber>2-07</trackNumber>
+            <title>Strangest Tribe</title>
+            <lenght>3:49</lenght>
+            <composer>Gossard</composer>
+      </song>
+      <song>
+            <id>s327</id>
+            <trackNumber>2-08</trackNumber>
+            <title>Drifting</title>
+            <lenght>2:53</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s328</id>
+            <trackNumber>2-09</trackNumber>
+            <title>Let Me Sleep</title>
+            <lenght>2:59</lenght>
+            <composer>Vedder/McCready</composer>
+      </song>
+      <song>
+            <id>s203</id>
+            <trackNumber>2-10</trackNumber>
+            <title>Last Kiss</title>
+            <lenght>3:17</lenght>
+            <composer>Cochran</composer>
+      </song>
+      <song>
+            <id>s329</id>
+            <trackNumber>2-11</trackNumber>
+            <title>Sweet Lew</title>
+            <lenght>2:12</lenght>
+            <composer>Ament</composer>
+      </song>
+      <song>
+            <id>s330</id>
+            <trackNumber>2-12</trackNumber>
+            <title>Dirty Frank</title>
+            <lenght>5:42</lenght>
+            <composer>Vedder/Gossard/Ament/McCready/Abbruzzese</composer>
+      </song>
+      <song>
+            <id>s331</id>
+            <trackNumber>2-13</trackNumber>
+            <title>Brother</title>
+            <lenght>3:47</lenght>
+            <composer>Gossard</composer>
+      </song>
+      <song>
+            <id>s332</id>
+            <trackNumber>2-14</trackNumber>
+            <title>Bee Girl</title>
+            <lenght>9:56</lenght>
+            <composer>Vedder/Ament</composer>
+      </song>
+</songs>

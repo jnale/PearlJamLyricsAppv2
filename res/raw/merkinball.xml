@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s201</id>
+            <trackNumber>01</trackNumber>
+            <title>I Got ID</title>
+            <lenght>4:53</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s202</id>
+            <trackNumber>02</trackNumber>
+            <title>Long Road</title>
+            <lenght>6:00</lenght>
+            <composer>Vedder</composer>
+      </song>
+</songs>

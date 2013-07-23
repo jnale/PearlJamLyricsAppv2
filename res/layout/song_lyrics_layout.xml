@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+    
+    <com.google.android.youtube.player.YouTubePlayerView
+      android:id="@+id/youtube_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+    
+	<ScrollView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:fadeScrollbars="true">
+	    
+		<RelativeLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical">
+		    
+		    <TextView 
+		        android:id="@+id/songTitle"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textSize="25sp"
+		        android:textStyle="bold"
+		        android:lines="1"
+		        android:ellipsize="end"
+		        android:layout_marginTop="5dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"/>
+		
+		    <TextView
+		        android:id="@+id/songComposer"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		        android:layout_below="@+id/songTitle"
+		        android:textSize="13sp"
+		        android:textStyle="bold"/>
+		    
+		    <TextView 
+		        android:id="@+id/songLyrics"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/songComposer"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="5dp"
+		        android:textStyle="italic"/>
+
+		    <ImageView
+		        android:id="@+id/songLyricsAddToFav"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="5dp"
+		        android:layout_marginRight="5dp"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:src="@drawable/ic_add_fav" />
+
+		</RelativeLayout>
+	</ScrollView>
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s93</id>
+            <trackNumber>01</trackNumber>
+            <title>Life Wasted</title>
+            <lenght>3:54</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s94</id>
+            <trackNumber>02</trackNumber>
+            <title>World Wide Suicide</title>
+            <lenght>3:29</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s95</id>
+            <trackNumber>03</trackNumber>
+            <title>Comatose</title>
+            <lenght>2:20</lenght>
+            <composer>Vedder/McCready/Gossard</composer>
+      </song>
+      <song>
+            <id>s96</id>
+            <trackNumber>04</trackNumber>
+            <title>Severed Hand</title>
+            <lenght>4:30</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s97</id>
+            <trackNumber>05</trackNumber>
+            <title>Marker In The Sand</title>
+            <lenght>4:23</lenght>
+            <composer>Vedder/McCready</composer>
+      </song>
+      <song>
+            <id>s98</id>
+            <trackNumber>06</trackNumber>
+            <title>Parachutes</title>
+            <lenght>3:36</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s99</id>
+            <trackNumber>07</trackNumber>
+            <title>Unemployable</title>
+            <lenght>3:04</lenght>
+            <composer>Vedder/Cameron/McCready</composer>
+      </song>
+      <song>
+            <id>s100</id>
+            <trackNumber>08</trackNumber>
+            <title>Big Wave</title>
+            <lenght>2:58</lenght>
+            <composer>Ament/Vedder</composer>
+      </song>
+      <song>
+            <id>s101</id>
+            <trackNumber>09</trackNumber>
+            <title>Gone</title>
+            <lenght>4:09</lenght>
+            <composer>Vedder</composer>
+      </song>
+      <song>
+            <id>s102</id>
+            <trackNumber>10</trackNumber>
+            <title>Wasted Reprise</title>
+            <lenght>0:54</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s103</id>
+            <trackNumber>11</trackNumber>
+            <title>Army Reserve</title>
+            <lenght>3:45</lenght>
+            <composer>Vedder/D. Echols/Ament</composer>
+      </song>
+      <song>
+            <id>s104</id>
+            <trackNumber>12</trackNumber>
+            <title>Come Back</title>
+            <lenght>5:30</lenght>
+            <composer>Vedder/McCready</composer>
+      </song>
+      <song>
+            <id>s105</id>
+            <trackNumber>13</trackNumber>
+            <title>Inside Job</title>
+            <lenght>7:09</lenght>
+            <composer>Vedder/McCready</composer>
+      </song>
+</songs>

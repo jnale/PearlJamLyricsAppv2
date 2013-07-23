@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<albums>
+    	<album>
+               <id>singlesmovie</id>
+               <name>Singles Soundtrack</name>
+               <releaseYear>1992</releaseYear>
+               <label>Sony Music</label>
+         </album>
+         <album>
+               <id>sweetrelief</id>
+               <name>Sweet Relief</name>
+               <releaseYear>1993</releaseYear>
+               <label>Columbia Records</label>
+         </album>
+        <album>
+               <id>lostdogs</id>
+               <name>Lost Dogs</name>
+               <releaseYear>2003</releaseYear>
+               <label>Sony Music</label>
+         </album>
+         <album>
+               <id>intothewild</id>
+               <name>EV - Into The Wild</name>
+               <releaseYear>2007</releaseYear>
+               <label>J Records</label>
+         </album>
+         <album>
+               <id>eatpraylove</id>
+               <name>Eat Pray Love Soundtrack</name>
+               <releaseYear>2010</releaseYear>
+               <label>Monkeywrench Records / Madison Gate Records</label>
+         </album>
+         <album>
+               <id>ukulelesongs</id>
+               <name>EV - Ukulele Songs</name>
+               <releaseYear>2011</releaseYear>
+               <label>Monkeybrench Records</label>
+         </album>
+         <album>
+               <id>everymothercounts</id>
+               <name>Every Mother Counts</name>
+               <releaseYear>2012</releaseYear>
+               <label></label>
+         </album>
+</albums>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s301</id>
+            <trackNumber>02</trackNumber>
+            <title>Breath</title>
+            <lenght>5:24</lenght>
+            <composer>Vedder/Gossard</composer>
+      </song>
+      <song>
+            <id>s302</id>
+            <trackNumber>08</trackNumber>
+            <title>State Of Love And Trust</title>
+            <lenght>3:44</lenght>
+            <composer>Vedder/McCready/Ament</composer>
+      </song>
+</songs>

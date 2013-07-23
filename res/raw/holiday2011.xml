@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+      <song>
+            <id>s210</id>
+            <trackNumber>01</trackNumber>
+            <title>Better Things</title>
+            <lenght>3:08</lenght>
+            <composer>Davies</composer>
+      </song>
+      <song>
+            <id>s211</id>
+            <trackNumber>02</trackNumber>
+            <title>Devil Doll</title>
+            <lenght>3:03</lenght>
+            <composer>X</composer>
+      </song>
+</songs>
