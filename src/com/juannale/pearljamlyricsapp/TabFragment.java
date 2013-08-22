@@ -13,10 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 
 import com.actionbarsherlock.app.SherlockFragment;
+import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
 import com.juannale.pearljamlyricsapp.adapters.AlbumAdapter;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 import com.juannale.pearljamlyricsapp.utils.XMLParser;
@@ -57,7 +58,7 @@ public class TabFragment extends SherlockFragment{
 			resourceName = "others";
 		
 		int resourceId = getResources().getIdentifier(resourceName, "raw",
-				"com.juannale.pearljamlyricsappv2");
+				"com.juannale.pearljamlyricsapp");
 
 		String xml = parser.readTextFile(getResources().openRawResource(
 				resourceId)); // getting XML content
@@ -83,7 +84,11 @@ public class TabFragment extends SherlockFragment{
 		View view = inflater.inflate(R.layout.mainactivity_layout, null);
        
 		GridView gridview = (GridView) view.findViewById(R.id.gridview);
-	    gridview.setAdapter(new AlbumAdapter(getActivity(), albumList));
+		
+		SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(new AlbumAdapter(getActivity(), albumList));
+		swingBottomInAnimationAdapter.setAbsListView(gridview);
+		
+	    gridview.setAdapter(swingBottomInAnimationAdapter);
        
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 

@@ -1,10 +1,13 @@
 package com.juannale.pearljamlyricsapp.utils;
 
+import com.juannale.pearljamlyricsapp.R;
+
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 public class AppUtils {
@@ -34,6 +37,9 @@ public class AppUtils {
  	
  	//Key for the YoutTube API
  	public static final String YOUTUBE_API_KEY = "AIzaSyB75D6vuIzBqWNBGIEdO_OV6FPKP7iwjBk";
+ 	
+ 	//Key for the Feedback v2 API
+ 	public static final String FEEDBACK_API_KEY = "AF-810DACB5819F-FF";
 
 	//Set Roboto Regular Font
     public static void setRobotoRegularFont (Context context, View view)
@@ -90,15 +96,13 @@ public class AppUtils {
         }
     }
     
-    
-     
-    // To animate view slide out from bottom to top
-    public void slideToTop(View view){
-    TranslateAnimation animate = new TranslateAnimation(0,0,0,-view.getHeight());
-    animate.setDuration(500);
-    animate.setFillAfter(true);
-    view.startAnimation(animate);
-    view.setVisibility(View.GONE);
+    public static void sendFeedback(Activity activity){
+    	
+    	Intent emailIntent = new Intent(Intent.ACTION_SEND);
+		emailIntent.setType("text/email");
+		emailIntent.putExtra(Intent.EXTRA_EMAIL, activity.getResources().getStringArray(R.array.feedback_email_address));
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getResources().getString(R.string.feedback_email_subject));
+		activity.startActivity(Intent.createChooser(emailIntent, activity.getResources().getString(R.string.feedback_email_alertTitle)));
+    	
     }
-	
 }

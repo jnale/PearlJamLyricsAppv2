@@ -29,7 +29,11 @@
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_app</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.App</item>
         <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
-
+        <item name="android:editTextBackground">@drawable/edit_text_holo_light</item> 
+        <item name="android:listChoiceIndicatorMultiple">@drawable/btn_check_holo_light</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/fastscroll_thumb_holo</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/btn_radio_holo_light</item>
+        
        <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.App.Widget</item>
 

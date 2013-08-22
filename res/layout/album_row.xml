@@ -3,10 +3,12 @@
     android:id="@+id/albumRowLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/album_background_white"
     android:layout_gravity="top"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="9dp">
     <!-- album cover image -->
-    <com.juannale.pearljamlyricsv2.widget.SquareImageView 
+    <com.juannale.pearljamlyricsapp.widget.SquareImageView 
         android:contentDescription="@string/album_image"
         android:id="@+id/albumCover"
         android:layout_width="fill_parent"
@@ -29,6 +31,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="3dp"
 	        android:layout_marginLeft="5dp"
+	        android:textSize="14sp"
 	        android:textColor="@android:color/white"/>
 	
 	    <!-- album year and label -->
@@ -36,6 +39,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
+	        android:textSize="12sp"
 	        android:textColor="@android:color/white"/>
 	</LinearLayout>
 

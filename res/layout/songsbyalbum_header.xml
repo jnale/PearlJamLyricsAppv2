@@ -5,6 +5,7 @@
     
     <!-- album cover image -->    
 	<ImageView
+	    android:contentDescription="@string/album_image"
 	    android:id="@+id/image_header"
 	    android:layout_width="fill_parent"
 	    android:layout_height="200dp"
@@ -31,6 +32,7 @@
 	        android:textSize="20sp" />
 
 	    <ImageView
+	        android:contentDescription="@string/album_info_icon"
 	        android:id="@+id/albumInfoIcon"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"

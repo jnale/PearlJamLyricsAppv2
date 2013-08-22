@@ -54,4 +54,10 @@
 	       <releaseYear>2009</releaseYear>
 	       <label>Monkeybrench Records</label>
 	 </album>
+	 <album>
+	       <id>lightningbolt</id>
+	       <name>Lightning Bolt</name>
+	       <releaseYear>2013</releaseYear>
+	       <label>Monkeybrench Records</label>
+	 </album>
 </albums>

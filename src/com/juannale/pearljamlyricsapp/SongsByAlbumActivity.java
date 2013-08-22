@@ -1,7 +1,6 @@
 package com.juannale.pearljamlyricsapp;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
@@ -12,21 +11,18 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
@@ -74,7 +70,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
         ImageView albumCover = (ImageView) findViewById(R.id.image_header);
         
         try {
-            Class<com.juannale.pearljamlyricsappv2.R.drawable> res = R.drawable.class;
+            Class<com.juannale.pearljamlyricsapp.R.drawable> res = R.drawable.class;
             Field field = res.getField(albumId);
             int drawableId = field.getInt(null);
             albumCover.setImageResource(drawableId);
@@ -91,7 +87,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
 		}
         
         int resourceId = getResources().getIdentifier(albumId, "raw",
-				"com.juannale.pearljamlyricsappv2");
+				"com.juannale.pearljamlyricsapp");
         
         final ArrayList<HashMap<String, String>> songList = new ArrayList<HashMap<String, String>>();
 
@@ -144,7 +140,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
         ImageView albumInfoIcon = (ImageView) findViewById(R.id.albumInfoIcon);
         
         int albumInfoResourceId = getResources().getIdentifier(albumId + "_info", "raw",
-				"com.juannale.pearljamlyricsappv2");
+				"com.juannale.pearljamlyricsapp");
         
         albumInfo = loadAlbumInfo(albumInfoResourceId);
         

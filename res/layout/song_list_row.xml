@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    
+    <!-- Song Title-->
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="18sp" 
+        android:gravity="center_vertical|left"/>
+
+    <!-- Favorite icon -->
+    <ImageView
+        android:contentDescription="@string/favorite_icon"
+        android:id="@+id/addToFavIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_add_fav_small" />
+    
+</RelativeLayout>

@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:verticalSpacing="3dp" 
-    android:horizontalSpacing="3dp"
     android:numColumns="2"
     android:stretchMode="columnWidth"    
+    android:background="@color/grey_background"
+    android:listSelector="@drawable/list_selector"
     />

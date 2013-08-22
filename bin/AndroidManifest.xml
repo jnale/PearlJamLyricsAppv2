@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.juannale.pearljamlyricsapp"
     android:versionCode="8"
-    android:versionName="2.0">
+    android:versionName="2.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="15"/>
-
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17" />
+    
     <!-- Permissions -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,70 +15,51 @@
 	<uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
-
-        <!-- Main Activity -->
+        android:label="@string/app_name"
+        android:theme="@style/Theme.App"
+        android:logo="@drawable/logo">
+        
         <activity
-            android:name=".SplashScreenActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:name=".MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Select By Album Activity -->
-        <activity
-            android:name=".SelectByAlbumActivity"
-            android:label="@string/actionbar_name"
-            android:theme="@style/Theme.Sherlock" >
-        </activity>
-        <!-- Select By Song Name Activity -->
-        <activity
-            android:name=".SelectBySongNameActivity"
-            android:label="@string/actionbar_name"
-            android:theme="@style/Theme.Sherlock" >
-        </activity>
-        <!-- Songs By Album Activity -->
+        
         <activity
             android:name=".SongsByAlbumActivity"
-            android:label="@string/actionbar_name"
-            android:theme="@style/Theme.Sherlock" >
-        </activity>
-        <!-- Songs Lyrics Activity -->
-        <activity
-            android:name=".SongLyricsActivity"
-            android:label="@string/actionbar_name"
-            android:theme="@style/Theme.Sherlock" >
-        </activity>
-        <!-- About Activity -->
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/about_actionbar"
-            android:theme="@style/Theme.Sherlock" >
-        </activity>
-        <!-- Favs Activity -->
-        <activity
-            android:name=".FavoritesActivity"
-            android:label="@string/actionbar_name"
-            android:theme="@style/Theme.Sherlock" >
-        </activity>
-        <!-- Help Activity -->
-        <activity
-            android:name="com.juannale.pearljamlyricsapp.HelpActivity"
-            android:label="@string/help_actionbar"
-            android:theme="@style/Theme.Sherlock" >
+            android:label="@string/app_name"
+            android:theme="@style/Theme.App.TranslucentActionBar">
         </activity>
         
-        <!-- Used for install referrer tracking -->
-	    <receiver android:name="com.google.android.apps.analytics.AnalyticsReceiver"
-	              android:exported="true">
-	      <intent-filter>
-	        <action android:name="com.android.vending.INSTALL_REFERRER" />
-	      </intent-filter>
-	    </receiver>
+        <activity
+            android:name=".SongLyricsActivity"
+            android:label="@string/app_name">
+        </activity>
+        
+        <activity
+            android:name=".PreferencesActivity"
+            android:label="@string/app_name">
+             <intent-filter>
+		       <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
+		       <category android:name="android.intent.category.DEFAULT" />
+		    </intent-filter>
+        </activity>
+        
+		<activity
+            android:name=".SongsListActivity"
+            android:label="@string/app_name">
+        </activity>
+            
+		<activity
+            android:name=".FavoritesActivity"
+            android:label="@string/app_name">
+        </activity>
+		
     </application>
 
 </manifest>

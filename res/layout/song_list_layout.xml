@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="@color/light_grey"
+    android:orientation="vertical"
+    tools:context=".SongListActivity" >
+
+    <EditText
+        android:id="@+id/filterSongsField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:hint="@string/filterSong"
+        android:maxLines="1"/>
+    
+    <View 
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_blue"/>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@drawable/list_selector" 
+        android:background="@android:color/white"/>
+
+</LinearLayout>

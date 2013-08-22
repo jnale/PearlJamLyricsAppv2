@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- General settings -->
+    <PreferenceCategory 
+        android:title="@string/pref_general">
+	    <!-- Show the video in open state or not preference -->
+	    <CheckBoxPreference 
+	        android:key="pref_show_video"
+	        android:title="@string/pref_show_video_title"
+	        android:summary="@string/pref_show_video"/>
+	    <!-- Clear all favorites preference -->
+	    <Preference 
+	        android:key="pref_clear_favs"
+	        android:title="@string/pref_clear_favorites_title"
+	        android:summary="@string/pref_clear_favorites"/>
+	</PreferenceCategory>
+    
+    <!-- About app -->
+    <PreferenceCategory 
+        android:title="@string/pref_about">
+        <Preference 
+            android:key="pref_version_number"
+            android:summary="@string/pref_version_number"
+            android:title="@string/pref_version_number_title"/>
+        <Preference 
+            android:key="pref_developed_by"
+            android:summary="@string/pref_developed_by"
+            android:title="@string/pref_developed_by_title"/>
+        <Preference 
+            android:key="pref_rate_app"
+            android:title="@string/pref_rate_app"/>
+        <Preference 
+            android:key="pref_open_source_lic"
+            android:title="@string/pref_open_source_lic"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -2,9 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item 
         android:id="@+id/action_video"
-        android:title="See video"
+        android:title="@string/action_showVideo"
         android:showAsAction="ifRoom|withText"
         android:icon="@drawable/ic_action_youtube"/>
+    
+    <item 
+        android:id="@+id/action_font_size"
+        android:title="@string/action_fontSize"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_font_size"/>
     
     <item
         android:id="@+id/action_settings"

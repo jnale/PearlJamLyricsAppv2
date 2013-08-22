@@ -6,14 +6,14 @@ import org.w3c.dom.NodeList;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -46,14 +46,14 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		String songId = bundle.getString(AppUtils.KEY_SONG_ID);
 
 		int resourceId = getResources().getIdentifier(songId, "raw",
-				"com.juannale.pearljamlyricsappv2");
+				"com.juannale.pearljamlyricsapp");
 
 		songTitle = (TextView) this.findViewById(R.id.songTitle);
 		songComposer = (TextView) this.findViewById(R.id.songComposer);
 		songLyrics = (TextView) this.findViewById(R.id.songLyrics);
 		
 		AppUtils.setRobotoLightFont(this, songTitle);
-		AppUtils.setRobotoLightFont(this, songComposer);
+		AppUtils.setRobotoThinFont(this, songComposer);
 		AppUtils.setRobotoLightFont(this, songLyrics);
 		
 		try {
@@ -78,10 +78,11 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 				youTubeVideoCode = parser.getValue(e, AppUtils.KEY_SONG_VIDEO);
 				
 			}
-		} catch (Exception e) {
+		} catch (NotFoundException e) {
 			Log.e(this.getLocalClassName(), "the " + songId
 					+ " XML file was not found");
-			songComposer.setText(R.string.lyricsError);
+			songLyrics.setText(R.string.lyricsError);
+			addToFavIcon.setVisibility(ViewGroup.GONE);
 		}
 		
 		//If the song has a video code... initialize the Player View
