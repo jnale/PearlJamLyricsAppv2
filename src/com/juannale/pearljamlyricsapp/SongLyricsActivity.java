@@ -1,19 +1,26 @@
 package com.juannale.pearljamlyricsapp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -29,7 +36,9 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 	TextView songLyrics;
 	YouTubePlayerView youTubeView;
 	ImageView addToFavIcon;
-
+	
+	private String song2Fav;
+	private String favs;
 	private String youTubeVideoCode="";
 	
 	@SuppressLint("NewApi")
@@ -77,6 +86,9 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 				
 				youTubeVideoCode = parser.getValue(e, AppUtils.KEY_SONG_VIDEO);
 				
+				//Set the song if it will be added as favorite
+				setSong2Fav(parser.getValue(e, AppUtils.KEY_SONG_TITLE) + ":" + songId);
+				
 			}
 		} catch (NotFoundException e) {
 			Log.e(this.getLocalClassName(), "the " + songId
@@ -85,6 +97,12 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 			addToFavIcon.setVisibility(ViewGroup.GONE);
 		}
 		
+		SharedPreferences appPrefs = getSharedPreferences(
+				"com.juannale.pearljamlyricsapp_preferences", MODE_PRIVATE);
+		favs = appPrefs.getString("favorites", "");
+		
+		
+			
 		//If the song has a video code... initialize the Player View
 		youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
 		
@@ -97,11 +115,66 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		
 		//set the add to favorites icon
 		addToFavIcon = (ImageView) findViewById(R.id.songLyricsAddToFav);
+		
+		//if the song is in the favorites list, change the image 
+		if (favs.contains(getSong2Fav())) 
+			//set the image to full star
+			addToFavIcon.setImageResource(R.drawable.ic_sel_fav);
+		
 		addToFavIcon.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				addToFavIcon.setImageResource(R.drawable.ic_sel_fav);
+				
+				String toastMessage="";
+				
+				SharedPreferences favsPrefs = getSharedPreferences(
+						"com.juannale.pearljamlyricsapp_preferences", MODE_PRIVATE);
+				favs = favsPrefs.getString("favorites", "");	
+				
+				// Search if the song was already saved in the favorites
+				if (favs.contains(getSong2Fav())) {
+					//set the image to empty star
+					addToFavIcon.setImageResource(R.drawable.ic_add_fav);
+					
+					//removes the song from the favorites list
+					ArrayList<HashMap<String, String>> favsList = AppUtils.getFavList(favs);
+					
+					
+					//vibrate and show the toast message
+					Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+					vib.vibrate(200);
+					
+					toastMessage = getResources().getString(
+							R.string.songRemovedFromFavs);
+				} else {
+					//set the image to full star
+					addToFavIcon.setImageResource(R.drawable.ic_sel_fav);
+					//Vibrates when the song is added to the favorites
+					Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+					vib.vibrate(200);
+					
+					// Save the song in the favorites
+					SharedPreferences.Editor prefsEditor = favsPrefs.edit();
+
+					// Check if it was the first favorite added into the list
+					if (favs.equals("")) {
+						prefsEditor.putString("favorites", getSong2Fav());
+					} else {
+						prefsEditor.putString("favorites", favs + "#"
+								+ getSong2Fav());
+					}
+
+					prefsEditor.commit();
+
+					// the song was added to the favorites
+					toastMessage = getResources().getString(
+							R.string.songAddedtoFavs);
+				}
+				// the song was added to the favorites
+				Toast toast = Toast.makeText(getApplicationContext(), toastMessage,
+						Toast.LENGTH_SHORT);
+				toast.show();
 				
 			}
 		});
@@ -164,6 +237,24 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
     protected YouTubePlayer.Provider getYouTubePlayerProvider() {
       return (YouTubePlayerView) findViewById(R.id.youtube_view);
     }
+    
+    /**
+	 * To get the value of the current song
+	 * 
+	 * @return String
+	 */
+	public String getSong2Fav() {
+		return song2Fav;
+	}
+
+	/**
+	 * To set the value of the current song
+	 * 
+	 * @param song2Fav
+	 */
+	public void setSong2Fav(String song2Fav) {
+		this.song2Fav = song2Fav;
+	}
     
     //To animate view slide out from top to bottom
 //    public void slideToBottom(View view){

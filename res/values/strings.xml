@@ -30,6 +30,8 @@
     <!-- favorites activity -->
     <string name="favsTitle">Favorite songs</string>
     <string name="howToAddFav">Long press a song to add it to your favorites or from the song lyrics screen icon</string>
+    <string name="songAddedtoFavs">song added to favorites</string>
+    <string name="songRemovedFromFavs">song removed from favorites</string>
     
     <!-- image content descriptors -->
     <string name="album_image">album cover</string>

@@ -1,5 +1,9 @@
 package com.juannale.pearljamlyricsapp.utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+
 import com.juannale.pearljamlyricsapp.R;
 
 import android.app.Activity;
@@ -104,5 +108,37 @@ public class AppUtils {
 		emailIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getResources().getString(R.string.feedback_email_subject));
 		activity.startActivity(Intent.createChooser(emailIntent, activity.getResources().getString(R.string.feedback_email_alertTitle)));
     	
+    }
+    
+    /**
+     * This method will return an ArrayList with all the song included into
+     * the favorites
+     * 
+     * @param favsInPrefs
+     * @return
+     */
+    public static ArrayList<HashMap<String, String>> getFavList(String favsInPrefs){
+    	ArrayList<HashMap<String, String>> favoriteList = new ArrayList<HashMap<String, String>>();
+    	
+    	String[] favsArray = favsInPrefs.split("#");
+    	ArrayList<String> elements = new ArrayList<String>();
+		Collections.addAll(elements, favsArray);
+
+		// looping through all songs
+		for (int i = 0; i < elements.size(); i++) {
+			// creating new HashMap
+			HashMap<String, String> map = new HashMap<String, String>();
+			String song = (String) elements.get(i);
+			String[] element = song.split(":", 2);
+
+			// adding each child node to HashMap key => value
+			map.put(KEY_SONG_ID, element[1]);
+			map.put(KEY_SONG_TITLE, element[0]);
+
+			// adding HashList to ArrayList
+			favoriteList.add(map);
+		}
+    	
+    	return favoriteList;
     }
 }

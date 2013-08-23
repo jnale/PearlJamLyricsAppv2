@@ -1,7 +1,6 @@
 package com.juannale.pearljamlyricsapp;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 import android.content.Intent;
@@ -9,23 +8,22 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.juannale.pearljamlyricsapp.adapters.FavoriteSongAdapter;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class FavoritesActivity extends SherlockActivity {
 	
 	private TextView listTitle;
 	private ListView myListView;
-	private ArrayList<String> elements;
 	private FavoriteSongAdapter adapter;
 	private int fav2Remove;
 
-	final ArrayList<HashMap<String, String>> songList = new ArrayList<HashMap<String, String>>();
+	ArrayList<HashMap<String, String>> favsList = new ArrayList<HashMap<String, String>>();
 
 
 	@Override
@@ -35,6 +33,7 @@ public class FavoritesActivity extends SherlockActivity {
 		setContentView(R.layout.favorites_layout);
 
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
 		
 		// Get songs from the favorites
 		SharedPreferences appPrefs = getSharedPreferences(
@@ -44,30 +43,13 @@ public class FavoritesActivity extends SherlockActivity {
 		// If there are favorites stored then...
 		if (!favs.equals("")) {
 
-			String[] favsArray = favs.split("#");
-			elements = new ArrayList<String>();
-			Collections.addAll(elements, favsArray);
-
-			// looping through all songs
-			for (int i = 0; i < elements.size(); i++) {
-				// creating new HashMap
-				HashMap<String, String> map = new HashMap<String, String>();
-				String song = (String) elements.get(i);
-				String[] element = song.split(":", 2);
-
-				// adding each child node to HashMap key => value
-				map.put(AppUtils.KEY_SONG_ID, element[1]);
-				map.put(AppUtils.KEY_SONG_TITLE, element[0]);
-
-				// adding HashList to ArrayList
-				songList.add(map);
-			}
+			favsList = AppUtils.getFavList(favs);
 			
 			// ListView
 			myListView = (ListView) findViewById(R.id.favsList);
 			myListView.setFastScrollEnabled(true);
 			// Getting adapter by passing data ArrayList
-			adapter = new FavoriteSongAdapter(this, songList);
+			adapter = new FavoriteSongAdapter(this, favsList);
 			myListView.setAdapter(adapter);
 
 			// Click event for single list row
@@ -77,12 +59,12 @@ public class FavoritesActivity extends SherlockActivity {
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
 
-					HashMap<String, String> songMap = (HashMap<String, String>) songList
+					HashMap<String, String> songMap = (HashMap<String, String>) favsList
 							.get(position);
 
 					Intent intent = new Intent(FavoritesActivity.this,
 							SongLyricsActivity.class);
-					intent.putExtra("songId", songMap.get(AppUtils.KEY_SONG_ID));
+					intent.putExtra(AppUtils.KEY_SONG_ID, songMap.get(AppUtils.KEY_SONG_ID));
 					startActivity(intent);
 
 				}
