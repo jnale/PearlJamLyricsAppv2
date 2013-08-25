@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- app title -->
+    <string name="app_name">Pearl Jam Lyrics</string>
+    
+    <!-- action bar labels -->
+    <string name="action_settings">Ajustes</string>
+    <string name="action_favorites">Favoritos</string>
+    <string name="action_songList">Lista de canciones</string>
+    <string name="action_showVideo">Ver Video</string>
+    <string name="action_hideVideo">Ocultar Video</string>
+    
+    <!-- songs list activity -->
+    <string name="filterSong">Tipea para filtrar las canciones</string>
+    
+    <!-- song lyrics activity -->
+    <string name="lyricsError">La letra de esta canción no está disponible en este momento&#8230;</string>
+    <string name="error_player">Hubo un error al inicializar el video de YouTube</string>
+    
+    <!-- image content descriptors -->
+    <string name="album_image">album cover</string>
+    <string name="album_info_icon">album info</string>
+    <string name="favorite_icon">favorite icon</string>
+    
+    <!-- tabs labels -->
+    <string-array name="album_tabs">
+        <item>estudio</item>
+		<item>singles</item>
+		<item>otros</item>
+	</string-array>
+	
+    <!-- List of songs -->
+    <string-array name="song_list">
+        <!-- Ten -->
+        <item>Once:s1</item>
+        <item>Evenflow:s2</item>
+        <item>Alive:s3</item>
+        <item>Why Go:s4</item>
+        <item>Black:s5</item>
+        <item>Jeremy:s6</item>
+        <item>Oceans:s7</item>
+        <item>Porch:s8</item>
+        <item>Garden:s9</item>
+        <item>Deep:s10</item>
+        <item>Release:s11</item>
+        <!-- Vs. -->
+        <item>Go:s12</item>
+        <item>Animal:s13</item>
+        <item>Daughter:s14</item>
+        <item>Glorified G:s15</item>
+        <item>Dissident:s16</item>
+        <item>W.M.A.:s17</item>
+        <item>Blood:s18</item>
+        <item>Rearviewmirror:s19</item>
+        <item>Rats:s20</item>
+        <item>Elderly Woman Behind The Counter In A Small Town:s21</item>
+        <item>Leash:s22</item>
+        <item>Indifference:s23</item>
+        <!-- Vitalogy -->
+        <item>Last Exit:s24</item>
+        <item>Spin The Black Circle:s25</item>
+        <item>Not For You:s26</item>
+        <item>Tremor Christ:s27</item>
+        <item>Nothingman:s28</item>
+        <item>Whipping:s29</item>
+        <item>Pry, To:s30</item>
+        <item>Corduroy:s31</item>
+        <item>Bugs:s32</item>
+        <item>Satan\'s Bed:s33</item>
+        <item>Better Man:s34</item>
+        <item>Aye Davanita:s35</item>
+        <item>Immortality:s36</item>
+        <item>Hey Foxymophandlemama, That\'s Me:s37</item>
+        <!-- No Code -->
+        <item>Sometimes:s38</item>
+        <item>Hail, Hail:s39</item>
+        <item>Who You Are:s40</item>
+        <item>In My Tree:s41</item>
+        <item>Smile:s42</item>
+        <item>Off He Goes:s43</item>
+        <item>Habit:s44</item>
+        <item>Red Mosquito:s45</item>
+        <item>Lukin:s46</item>
+        <item>Present Tense:s47</item>
+        <item>Mankind:s48</item>
+        <item>I\'m Open:s49</item>
+        <item>Around The Bend:s50</item>
+        <!-- Yield -->
+        <item>Brain of J.:s51</item>
+        <item>Faithfull:s52</item>
+        <item>No Way:s53</item>
+        <item>Given To Fly:s54</item>
+        <item>Whishlist:s55</item>
+        <item>Pilate:s56</item>
+        <item>Do The Evolution:s57</item>
+        <item>Untitled:s58</item>
+        <item>MFC:s59</item>
+        <item>Low Light:s60</item>
+        <item>In Hiding:s61</item>
+        <item>Push Me, Pull Me:s62</item>
+        <item>All Those Yesterdays:s63</item>
+        <!-- Binaural -->
+        <item>Brakerfall:s64</item>
+        <item>God\'s Dice:s65</item>
+        <item>Evacuation:s66</item>
+        <item>Light Years:s67</item>
+        <item>Nothing As It Seems:s68</item>
+        <item>Thin Air:s69</item>
+        <item>Insignificance:s70</item>
+        <item>Of The Girl:s71</item>
+        <item>Grievance:s72</item>
+        <item>Rival:s73</item>
+        <item>Sleight Of Hand:s74</item>
+        <item>Soon Forget:s75</item>
+        <item>Parting Ways:s76</item>
+        <!-- Riot Act -->
+        <item>Can\'t Keep:s77</item>
+        <item>Save You:s78</item>
+        <item>Love Boat Captain:s79</item>
+        <item>Cropduster:s80</item>
+        <item>Ghost:s81</item>
+        <item>I Am Mine:s82</item>
+        <item>Thumbing My Way:s83</item>
+        <item>You Are:s84</item>
+        <item>Get Right:s85</item>
+        <item>Green Disease:s86</item>
+        <item>Help Help:s87</item>
+        <item>Bu$hleaguer:s88</item>
+        <item>&#189; Full:s89</item>
+        <item>Arc:s90</item>
+        <item>All Or None:s91</item>
+        <!-- Pearl Jam -->
+        <item>Life Wasted:s93</item>
+        <item>World Wide Suicide:s94</item>
+        <item>Comatose:s95</item>
+        <item>Severed Hand:s96</item>
+        <item>Marker In The Sand:s97</item>
+        <item>Parachutes:s98</item>
+        <item>Unemployable:s99</item>
+        <item>Big Wave:s100</item>
+        <item>Gone:s101</item>
+        <item>Wasted Reprise:s102</item>
+        <item>Army Reserve:s103</item>
+        <item>Come Back:s104</item>
+        <item>Inside Job:s105</item>
+        <!-- Backspacer -->
+        <item>Gonna See My Friend:s106</item>
+        <item>Got Some:s107</item>
+        <item>The Fixer:s108</item>
+        <item>Johnny Guitar:s109</item>
+        <item>Just Breathe:s110</item>
+        <item>Amongst The Waves:s111</item>
+        <item>Unthought Known:s112</item>
+        <item>Supersonic:s113</item>
+        <item>Speed of Sound:s114</item>
+        <item>Force of Nature:s115</item>
+        <item>The End:s116</item>
+        <!-- Singles -->
+        <item>Angel:s209</item>
+        <item>I Got ID:s201</item>
+        <item>Long Road:s202</item>
+        <item>Last Kiss:s203</item>
+        <item>Soldier Of Love:s204</item>
+        <item>Man Of The Hour:s205</item>
+        <item>Santa Cruz:s206</item>
+        <item>Golden State:s207</item>
+        <item>OlÃ©:s208</item>
+        <item>Better Things:s210</item>
+        <item>Devil Doll:s211</item>
+        <!-- Singles Soundtrack -->
+        <item>Breath:s301</item>
+        <item>State Of Love And Trust:s302</item>
+        <!-- Sweet Relief -->
+        <item>Crazy Mary:s303</item>
+        <!-- Lost Dogs -->
+        <item>All Night:s304</item>
+        <item>Sad:s305</item>
+        <item>Down:s306</item>
+        <item>Hitchhiker:s307</item>
+        <item>Don\'t Gimme No Lip:s308</item>
+        <item>Alone:s309</item>
+        <item>In The Moonlight:s310</item>
+        <item>Education:s311</item>
+        <item>Black, Red, Yellow:s312</item>
+        <item>U:s313</item>
+        <item>Leavin\' Here:s314</item>
+        <item>Gremmie Out of Control:s315</item>
+        <item>Whale Song:s316</item>
+        <item>Undone:s317</item>
+        <item>Hold On:s318</item>
+        <item>Yellow Ledbetter:s319</item>
+        <item>Fatal:s320</item>
+        <item>Other Side:s321</item>
+        <item>Hard To Imagine:s322</item>
+        <item>Footsteps:s323</item>
+        <item>Wash:s324</item>
+        <item>Dead Man:s325</item>
+        <item>Strangest Tribe:s326</item>
+        <item>Drifting:s327</item>
+        <item>Let Me Sleep:s328</item>
+        <item>Sweet Lew:s329</item>
+        <item>Dirty Frank:s330</item>
+        <item>Brother:s331</item>
+        <item>Bee Girl:s332</item>
+        <!-- Into The Wild -->
+        <item>Setting Forth:s333</item>
+        <item>No Ceiling:s334</item>
+        <item>Far Behind:s335</item>
+        <item>Rise:s336</item>
+        <item>Long Nights:s337</item>
+        <item>Tuolumne:s338</item>
+        <item>Hard Sun:s339</item>
+        <item>Society:s340</item>
+        <item>The Wolf:s341</item>
+        <item>End Of The Road:s342</item>
+        <item>Guaranteed:s343</item>
+        <!-- Eat Pray Love -->
+        <item>Better Days:s344</item>
+        <!-- Ukulele Songs -->
+        <item>Sleeping By Myself:s346</item>
+        <item>Without You:s347</item>
+        <item>More Than You Know:s348</item>
+        <item>Goodbye:s349</item>
+        <item>Broken Heart:s350</item>
+        <item>Satellite:s351</item>
+        <item>Longing To Belong:s352</item>
+        <item>Hey Fahkah:s353</item>
+        <item>You\'re True:s354</item>
+        <item>Light Today:s355</item>
+        <item>Sleepless Nights:s356</item>
+        <item>Once In A While:s357</item>
+        <item>Waving Palms:s358</item>
+        <item>Tonight You Belong To Me:s359</item>
+        <item>Dream A Little Dream:s360</item>
+        <!-- Every Mother Counts -->
+        <item>Skipping:s361</item>
+		<!-- Lightning Bolt -->
+		<item>Mind Your Manners:s362</item>
+	</string-array>
+</resources>
