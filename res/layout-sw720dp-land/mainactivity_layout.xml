@@ -6,6 +6,6 @@
     android:gravity="center"
     android:verticalSpacing="3dp" 
     android:horizontalSpacing="3dp"
-    android:numColumns="4"
+    android:numColumns="5"
     android:stretchMode="columnWidth"    
     />

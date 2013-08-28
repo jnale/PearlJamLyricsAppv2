@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item 
-        android:id="@+id/action_video"
-        android:title="@string/action_showVideo"
-        android:showAsAction="ifRoom|withText"
-        android:icon="@drawable/ic_action_youtube"/>
     
     <item 
-        android:id="@+id/action_font_size"
-        android:title="@string/action_fontSize"
+        android:id="@+id/action_album_info"
+        android:title="@string/action_albumInfo"
         android:showAsAction="ifRoom|withText"
-        android:icon="@drawable/ic_action_font_size"/>
+        android:icon="@drawable/ic_action_info" 
+        android:visible="false"/>
     
     <item
         android:id="@+id/action_settings"

@@ -12,9 +12,9 @@
 	    android:adjustViewBounds="true"
 	    android:clickable="false" 
 	    android:scaleType="centerCrop" />
-	<!-- album data layout -->
 	
-	<RelativeLayout 
+	<!-- album data layout -->
+	<RelativeLayout
 	    android:layout_width="fill_parent"
 	    android:layout_height="45dp"
 	    android:layout_gravity="bottom"
@@ -29,8 +29,8 @@
 	        android:textColor="#FFF"
 	        android:gravity="left|center_vertical"
 	        android:clickable="false" 
-	        android:textSize="20sp" />
-
+	        android:textSize="20sp"/>
+<!--  
 	    <ImageView
 	        android:contentDescription="@string/album_info_icon"
 	        android:id="@+id/albumInfoIcon"
@@ -40,10 +40,9 @@
 	        android:layout_centerVertical="true"
 	        android:paddingRight="10dp"
 	        android:src="@drawable/ic_info"
-	        android:clickable="true" 
-	        android:focusable="true"
+	        android:background="@color/light_blue"
 	        android:visibility="gone"/>
-	    
+-->	    
 	</RelativeLayout>
 
 </FrameLayout>

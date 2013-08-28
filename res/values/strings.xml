@@ -4,6 +4,12 @@
     <!-- app title -->
     <string name="app_name">Pearl Jam Lyrics</string>
     
+    <!-- dialog buttons -->
+    <string name="dialog_close">Close</string>
+    
+    <!-- dialog titles -->
+    <string name="dialog_title_albumInfo">Album Info</string>
+    
     <!-- feedback email -->
     <string-array name="feedback_email_address">
     	<item>juan.nale@gmail.com</item>    
@@ -19,6 +25,7 @@
     <string name="action_hideVideo">Hide Video</string>
     <string name="action_fontSize">Font Size</string>
     <string name="action_sendFeedback">Send Feedback</string>
+    <string name="action_albumInfo">Album Info</string>
     
     <!-- songs list activity -->
     <string name="filterSong">Type to filter songs</string>

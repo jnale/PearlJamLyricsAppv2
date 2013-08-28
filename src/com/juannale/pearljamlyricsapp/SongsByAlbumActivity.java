@@ -15,15 +15,15 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
@@ -135,33 +135,38 @@ public class SongsByAlbumActivity extends SherlockActivity {
      			}
      		});
         
-        
         //Check if the album info is available to show the icon and build the dialog
-        ImageView albumInfoIcon = (ImageView) findViewById(R.id.albumInfoIcon);
-        
+//        ImageView albumInfoIcon = (ImageView) findViewById(R.id.albumInfoIcon);
+//        
         int albumInfoResourceId = getResources().getIdentifier(albumId + "_info", "raw",
 				"com.juannale.pearljamlyricsapp");
         
         albumInfo = loadAlbumInfo(albumInfoResourceId);
-        
-        if(albumInfo!= null){
-        	albumInfoIcon.setVisibility(View.VISIBLE);	
-        }
-        albumInfoIcon.bringToFront();	  	
-        albumInfoIcon.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getBaseContext(), "Click en Info", Toast.LENGTH_SHORT).show();
-				showAlbumInfoDialog(albumInfo);
-			}
-		});
+//        
+//        if(albumInfo!= null){
+//        	albumInfoIcon.setVisibility(View.VISIBLE);	
+//        }
+//        albumInfoIcon.bringToFront();	  	
+//        albumInfoIcon.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				Toast.makeText(getBaseContext(), "Click en Info", Toast.LENGTH_SHORT).show();
+//				showAlbumInfoDialog(albumInfo);
+//			}
+//		});
         
 	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.main_menu, menu);
+        getSupportMenuInflater().inflate(R.menu.songs_by_album_menu, menu);
+        
+        if(albumInfo!= null){
+        	//Hide the action icon if there is no info for the album
+        	MenuItem item = (MenuItem) menu.findItem(R.id.action_album_info);
+        	item.setVisible(true);
+        }
         return true;
     }
     
@@ -181,7 +186,10 @@ public class SongsByAlbumActivity extends SherlockActivity {
 	            startActivity(parentActivityIntent);
 	            finish();
 	            return true;
-		
+	            
+			case R.id.action_album_info:
+				showAlbumInfoDialog(albumInfo);
+				return true;
 		}
 		
 		return super.onOptionsItemSelected(item);
@@ -213,12 +221,20 @@ public class SongsByAlbumActivity extends SherlockActivity {
 
     
     /**
-	 * Show the album info in a alert dialog
+	 * Show the album info in an alert dialog
 	 */
 	protected void showAlbumInfoDialog(String albumInfo){
-	
+		ScrollView scroll = new ScrollView(this);
+		TextView messageView = new TextView(this);
+		messageView.setText(albumInfo);
+		messageView.setPadding(10, 10, 10, 10);
+		AppUtils.setRobotoLightFont(this, messageView);
+		scroll.addView(messageView);
+		
+		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(albumName + " info").setPositiveButton("OK", 
+		builder.setView(scroll);
+		builder.setTitle(albumName + " " + getString(R.string.dialog_title_albumInfo)).setPositiveButton(R.string.dialog_close, 
 				new DialogInterface.OnClickListener() {
 
 			@Override
@@ -226,7 +242,8 @@ public class SongsByAlbumActivity extends SherlockActivity {
 					int which) {
 				dialog.dismiss();
 			}
-		}).setMessage(albumInfo).create();
+		}).show();
 		
 	}
+	
 }
