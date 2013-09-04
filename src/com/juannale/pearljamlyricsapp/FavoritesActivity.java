@@ -13,6 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.juannale.pearljamlyricsapp.adapters.FavoriteSongAdapter;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
@@ -51,6 +54,9 @@ public class FavoritesActivity extends SherlockActivity {
 			// Getting adapter by passing data ArrayList
 			adapter = new FavoriteSongAdapter(this, favsList);
 			myListView.setAdapter(adapter);
+			
+			TextView titleView = (TextView) findViewById(R.id.favsTitle);
+			AppUtils.setRobotoLightFont(this, titleView);
 
 			// Click event for single list row
 			myListView.setOnItemClickListener(new OnItemClickListener() {
@@ -77,6 +83,48 @@ public class FavoritesActivity extends SherlockActivity {
 			listTitle.setText(R.string.howToAddFav);
 		}
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		MenuInflater menuInflater = getSupportMenuInflater();
+		menuInflater.inflate(R.menu.favorites_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()){
+			
+			case android.R.id.home:
+	            // This is called when the Home (Up) button is pressed
+	            // in the Action Bar.
+	            Intent parentActivityIntent = new Intent(this, 
+	            		MainActivity.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	            return true;
+		
+			case R.id.action_settings:
+				//Go to the settings activity
+				Intent settingsIntent = new Intent(this, 
+	            		PreferencesActivity.class);
+				startActivity(settingsIntent);
+				return true;     
+				
+			case R.id.action_send_feedback:	
+				//Send feedback
+				AppUtils.sendFeedback(this);
+		        return true;
+				
+		}
+		
+		return super.onOptionsItemSelected(item);
+	}	
 	
 	/**
 	 * fav2Remove getter

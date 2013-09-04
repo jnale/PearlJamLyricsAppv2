@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <songs>
+       <song>
+            <id></id>
+            <trackNumber>01</trackNumber>
+            <title>Getaway</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
       <song>
-            <id>s362</id>
-            <trackNumber>??</trackNumber>
+            <id>s363</id>
+            <trackNumber>02</trackNumber>
             <title>Mind Your Manners</title>
             <lenght>2:39</lenght>
             <composer>Vedder</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>03</trackNumber>
+            <title>My Father's Son</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>04</trackNumber>
+            <title>Sirens</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>05</trackNumber>
+            <title>Lightning Bolt</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>06</trackNumber>
+            <title>Infallible</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>07</trackNumber>
+            <title>Pendulum</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>08</trackNumber>
+            <title>Swallowed Whole</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>09</trackNumber>
+            <title>Let The Records Play</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>10</trackNumber>
+            <title>Sleeping By Myself</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>11</trackNumber>
+            <title>Yellow Moon</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
+      </song>
+      <song>
+            <id></id>
+            <trackNumber>12</trackNumber>
+            <title>Future Days</title>
+            <lenght></lenght>
+            <composer>Unknow</composer>
       </song>
 </songs>

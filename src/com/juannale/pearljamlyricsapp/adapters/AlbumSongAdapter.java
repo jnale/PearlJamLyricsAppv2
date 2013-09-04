@@ -66,7 +66,9 @@ public class AlbumSongAdapter extends BaseAdapter {
 		songMap = data.get(position);
 		
 		songNumberView.setText(songMap.get(AppUtils.KEY_TRACK_NUMBER));
-		songTitleView.setText(songMap.get(AppUtils.KEY_SONG_TITLE) + " (" + songMap.get(AppUtils.KEY_SONG_LENGHT) + ")");
+		songTitleView.setText(songMap.get(AppUtils.KEY_SONG_TITLE));
+		if(!songMap.get(AppUtils.KEY_SONG_LENGHT).equals(""))
+			songTitleView.setText(songTitleView.getText() + " (" + songMap.get(AppUtils.KEY_SONG_LENGHT) + ")");
 		songComposerView.setText(songMap.get(AppUtils.KEY_SONG_COMPOSER));
 		
 		AppUtils.setRobotoLightFont(activity.getBaseContext(), songNumberView);

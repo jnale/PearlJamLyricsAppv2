@@ -21,6 +21,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_favorites">Favorites</string>
     <string name="action_songList">Song List</string>
+    <string name="action_albums">Albums</string>
     <string name="action_showVideo">Show Video</string>
     <string name="action_hideVideo">Hide Video</string>
     <string name="action_fontSize">Font Size</string>

@@ -15,6 +15,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.juannale.pearljamlyricsapp.adapters.SongAdapter;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
@@ -148,26 +151,84 @@ public class SongsListActivity extends SherlockActivity {
 	}
 	
 	// Add the songs into a Map
-		private ArrayList<HashMap<java.lang.String, java.lang.String>> getSongsMapForAdapter(
-				ArrayList<String> songs) {
+	private ArrayList<HashMap<java.lang.String, java.lang.String>> getSongsMapForAdapter(
+			ArrayList<String> songs) {
 
-			ArrayList<HashMap<String, String>> returnList = new ArrayList<HashMap<String, String>>();
+		ArrayList<HashMap<String, String>> returnList = new ArrayList<HashMap<String, String>>();
 
-			// looping through all songs
-			for (int i = 0; i < songs.size(); i++) {
-				// creating new HashMap
-				HashMap<String, String> map = new HashMap<String, String>();
-				String song = (String) songs.get(i);
-				String[] element = song.split(":", 2);
+		// looping through all songs
+		for (int i = 0; i < songs.size(); i++) {
+			// creating new HashMap
+			HashMap<String, String> map = new HashMap<String, String>();
+			String song = (String) songs.get(i);
+			String[] element = song.split(":", 2);
 
-				// adding each child node to HashMap key => value
-				map.put(AppUtils.KEY_SONG_ID, element[1]);
-				map.put(AppUtils.KEY_SONG_TITLE, element[0]);
+			// adding each child node to HashMap key => value
+			map.put(AppUtils.KEY_SONG_ID, element[1]);
+			map.put(AppUtils.KEY_SONG_TITLE, element[0]);
 
-				// adding HashList to ArrayList
-				returnList.add(map);
-			}
-
-			return returnList;
+			// adding HashList to ArrayList
+			returnList.add(map);
 		}
+
+		return returnList;
+	}
+		
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		MenuInflater menuInflater = getSupportMenuInflater();
+		menuInflater.inflate(R.menu.song_list_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()){
+		
+			case android.R.id.home:
+	            // This is called when the Home (Up) button is pressed
+	            // in the Action Bar.
+	            Intent parentActivityIntent = new Intent(this, 
+	            		MainActivity.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	            return true;
+		
+			case R.id.action_grid:	
+				//Go to the song list activity
+				Intent albumViewIntent = new Intent(this, 
+	            		MainActivity.class);
+				startActivity(albumViewIntent);
+				return true;
+			
+			case R.id.action_favorites:	
+				//Go to the favorites activity
+				Intent favoritesIntent = new Intent(this, 
+	            		FavoritesActivity.class);
+				startActivity(favoritesIntent);
+				return true;
+		
+			case R.id.action_settings:
+				//Go to the settings activity
+				Intent settingsIntent = new Intent(this, 
+	            		PreferencesActivity.class);
+				startActivity(settingsIntent);
+				return true;     
+				
+			case R.id.action_send_feedback:	
+				//Send feedback
+				AppUtils.sendFeedback(this);
+		        return true;
+				
+		}
+		
+		return super.onOptionsItemSelected(item);
+	}	
+	
+	
 }

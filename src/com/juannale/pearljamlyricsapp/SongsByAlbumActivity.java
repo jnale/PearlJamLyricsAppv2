@@ -15,7 +15,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -71,7 +70,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
         
         try {
             Class<com.juannale.pearljamlyricsapp.R.drawable> res = R.drawable.class;
-            Field field = res.getField(albumId);
+            Field field = res.getField(albumId + "_cover");
             int drawableId = field.getInt(null);
             albumCover.setImageResource(drawableId);
         
@@ -128,33 +127,20 @@ public class SongsByAlbumActivity extends SherlockActivity {
      				HashMap<String, String> albumMap = (HashMap<String, String>) songList
      						.get(position-1);
 
-     				Intent intent = new Intent(SongsByAlbumActivity.this,
-     						SongLyricsActivity.class);
-     				intent.putExtra(AppUtils.KEY_SONG_ID, albumMap.get(AppUtils.KEY_SONG_ID));
-     				startActivity(intent);
+     				if(!albumMap.get(AppUtils.KEY_SONG_ID).equals("")){
+     					Intent intent = new Intent(SongsByAlbumActivity.this,
+	     						SongLyricsActivity.class);
+	     				intent.putExtra(AppUtils.KEY_SONG_ID, albumMap.get(AppUtils.KEY_SONG_ID));
+	     				startActivity(intent);
+     				}
      			}
      		});
         
         //Check if the album info is available to show the icon and build the dialog
-//        ImageView albumInfoIcon = (ImageView) findViewById(R.id.albumInfoIcon);
-//        
         int albumInfoResourceId = getResources().getIdentifier(albumId + "_info", "raw",
 				"com.juannale.pearljamlyricsapp");
         
         albumInfo = loadAlbumInfo(albumInfoResourceId);
-//        
-//        if(albumInfo!= null){
-//        	albumInfoIcon.setVisibility(View.VISIBLE);	
-//        }
-//        albumInfoIcon.bringToFront();	  	
-//        albumInfoIcon.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				Toast.makeText(getBaseContext(), "Click en Info", Toast.LENGTH_SHORT).show();
-//				showAlbumInfoDialog(albumInfo);
-//			}
-//		});
         
 	}
 
