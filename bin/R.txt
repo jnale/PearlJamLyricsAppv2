@@ -456,9 +456,12 @@ int id abs__submit_area 0x7f060034
 int id abs__textButton 0x7f060018
 int id abs__title 0x7f060020
 int id abs__up 0x7f06000b
-int id action_album_info 0x7f060059
+int id action_album_info 0x7f06005c
 int id action_favorites 0x7f060055
 int id action_font_size 0x7f060058
+int id action_font_size_large 0x7f06005b
+int id action_font_size_medium 0x7f06005a
+int id action_font_size_small 0x7f060059
 int id action_grid 0x7f060056
 int id action_list 0x7f060054
 int id action_send_feedback 0x7f060053

@@ -11,6 +11,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
@@ -22,6 +23,8 @@ public class MainActivity extends SherlockFragmentActivity {
 	ViewPagerFragmentAdapter mAdapter;
     ViewPager mPager;
     PageIndicator mIndicator;
+    
+    private PearlJamLyricsAppDAO dao; 
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class MainActivity extends SherlockFragmentActivity {
         
         mIndicator = (TabPageIndicator)findViewById(R.id.indicator);
         mIndicator.setViewPager(mPager);
+        
+        dao = new PearlJamLyricsAppDAO(this, "PJLYRICS_DB", null, 1);
         
 	}
 	

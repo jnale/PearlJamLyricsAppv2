@@ -255,16 +255,28 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 	public void setSong2Fav(String song2Fav) {
 		this.song2Fav = song2Fav;
 	}
-    
-    //To animate view slide out from top to bottom
-//    public void slideToBottom(View view){
-//    	
-//	    TranslateAnimation animate = new TranslateAnimation(0,0,0,view.getHeight());
-//	    animate.setDuration(500);
-//	    animate.setFillAfter(true);
-//	    view.startAnimation(animate);
-//	    view.setVisibility(View.VISIBLE);
-//	    
-//    }
+   
+	
+	/**
+	 * To set the lyrics font size
+	 */
+	public boolean setFontSize(MenuItem item){
+		
+		int fontSize=14;
+		int itemId = item.getItemId();
+		songLyrics = (TextView) findViewById(R.id.songLyrics);
+		
+		
+		//Set the size depending on the menu item selected
+		if(itemId == R.id.action_font_size_small)
+			fontSize = 12;
+		else if	(itemId == R.id.action_font_size_medium)	
+			fontSize = 14;
+		else if	(itemId == R.id.action_font_size_large)
+			fontSize = 16;
+			
+		songLyrics.setTextSize(fontSize);
+		return true;
+	}
    
 }

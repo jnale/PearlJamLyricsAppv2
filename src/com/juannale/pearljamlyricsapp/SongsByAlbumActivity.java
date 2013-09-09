@@ -70,15 +70,23 @@ public class SongsByAlbumActivity extends SherlockActivity {
         
         try {
             Class<com.juannale.pearljamlyricsapp.R.drawable> res = R.drawable.class;
-            Field field = res.getField(albumId + "_cover");
+            Field field = null;
+            try{
+            	field = res.getField(albumId + "_cover");
+            } catch (NoSuchFieldException e) {
+            	//If the cover image is not found, set the generic one
+            	try {
+					field = res.getField(albumId);
+					Log.i("SongsByAlbumActivity", "Failure to get drawable id: " + albumId + "_cover");
+				} catch (NoSuchFieldException e1) {
+					// TODO Auto-generated catch block
+					Log.i("SongsByAlbumActivity", "Failure to get drawable id: " + albumId);
+				}
+    			
+            }
             int drawableId = field.getInt(null);
             albumCover.setImageResource(drawableId);
         
-        }
-        catch (NoSuchFieldException e) {
-        	//If the cover image is not found, set the generic one
-		    albumCover.setImageResource(R.drawable.pearljam);
-			Log.i("SongsByAlbumActivity", "Failure to get drawable id: " + albumId);
         } catch (IllegalArgumentException e) {
         	Log.e("SongsByAlbumActivity", "Failure", e);
 		} catch (IllegalAccessException e) {
