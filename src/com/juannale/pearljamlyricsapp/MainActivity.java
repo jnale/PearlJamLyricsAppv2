@@ -24,7 +24,7 @@ public class MainActivity extends SherlockFragmentActivity {
     ViewPager mPager;
     PageIndicator mIndicator;
     
-    private PearlJamLyricsAppDAO dao; 
+    private PearlJamLyricsAppDAO dbAdapter; 
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class MainActivity extends SherlockFragmentActivity {
         mIndicator = (TabPageIndicator)findViewById(R.id.indicator);
         mIndicator.setViewPager(mPager);
         
-        dao = new PearlJamLyricsAppDAO(this, "PJLYRICS_DB", null, 1);
+        dbAdapter = new PearlJamLyricsAppDAO(this);
         
 	}
 	

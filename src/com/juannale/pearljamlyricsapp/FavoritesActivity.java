@@ -1,8 +1,8 @@
 package com.juannale.pearljamlyricsapp;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.juannale.pearljamlyricsapp.adapters.FavoriteSongAdapter;
+import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
 public class FavoritesActivity extends SherlockActivity {
@@ -25,9 +26,6 @@ public class FavoritesActivity extends SherlockActivity {
 	private ListView myListView;
 	private FavoriteSongAdapter adapter;
 	private int fav2Remove;
-
-	ArrayList<HashMap<String, String>> favsList = new ArrayList<HashMap<String, String>>();
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,21 +36,17 @@ public class FavoritesActivity extends SherlockActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setDisplayShowTitleEnabled(false);
 		
-		// Get songs from the favorites
-		SharedPreferences appPrefs = getSharedPreferences(
-				"com.juannale.pearljamlyricsapp_preferences", MODE_PRIVATE);
-		String favs = appPrefs.getString("favorites", "");
+		// Get songs from the favorites table
+		final List<ContentValues> favoriteList = new PearlJamLyricsAppDAO(this.getBaseContext()).getAllFavorites();
 
 		// If there are favorites stored then...
-		if (!favs.equals("")) {
+		if (!favoriteList.isEmpty()) {
 
-			favsList = AppUtils.getFavList(favs);
-			
 			// ListView
 			myListView = (ListView) findViewById(R.id.favsList);
 			myListView.setFastScrollEnabled(true);
 			// Getting adapter by passing data ArrayList
-			adapter = new FavoriteSongAdapter(this, favsList);
+			adapter = new FavoriteSongAdapter(this, favoriteList);
 			myListView.setAdapter(adapter);
 			
 			TextView titleView = (TextView) findViewById(R.id.favsTitle);
@@ -65,12 +59,12 @@ public class FavoritesActivity extends SherlockActivity {
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
 
-					HashMap<String, String> songMap = (HashMap<String, String>) favsList
+					ContentValues values = (ContentValues) favoriteList
 							.get(position);
 
 					Intent intent = new Intent(FavoritesActivity.this,
 							SongLyricsActivity.class);
-					intent.putExtra(AppUtils.KEY_SONG_ID, songMap.get(AppUtils.KEY_SONG_ID));
+					intent.putExtra(AppUtils.KEY_SONG_ID, values.getAsString(AppUtils.KEY_SONG_ID));
 					startActivity(intent);
 
 				}
@@ -79,7 +73,10 @@ public class FavoritesActivity extends SherlockActivity {
 			
 		} else {
 			// Change screen title when no favs were added already
+			View lineView = (View) findViewById(R.id.colorLine);
+			lineView.setVisibility(View.GONE);
 			listTitle = (TextView) findViewById(R.id.favsTitle);
+			listTitle.setBackgroundColor(getResources().getColor(android.R.color.white));
 			listTitle.setText(R.string.howToAddFav);
 		}
 	}

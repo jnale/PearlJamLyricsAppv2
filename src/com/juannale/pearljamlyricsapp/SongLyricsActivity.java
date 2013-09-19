@@ -26,19 +26,21 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 import com.juannale.pearljamlyricsapp.utils.XMLParser;
 
 public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 
-	TextView songTitle;
-	TextView songComposer;
-	TextView songLyrics;
+	TextView songTitleTxtView;
+	TextView songComposerTxtView;
+	TextView songLyricsTxtView;
 	YouTubePlayerView youTubeView;
-	ImageView addToFavIcon;
+	ImageView addToFavIconImgView;
 	
-	private String song2Fav;
-	private String favs;
+	String songId;
+	String songTitle;
+	
 	private String youTubeVideoCode="";
 	
 	@SuppressLint("NewApi")
@@ -52,18 +54,18 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		Bundle bundle = this.getIntent().getExtras();
-		String songId = bundle.getString(AppUtils.KEY_SONG_ID);
+		songId = bundle.getString(AppUtils.KEY_SONG_ID);
 
 		int resourceId = getResources().getIdentifier(songId, "raw",
 				"com.juannale.pearljamlyricsapp");
 
-		songTitle = (TextView) this.findViewById(R.id.songTitle);
-		songComposer = (TextView) this.findViewById(R.id.songComposer);
-		songLyrics = (TextView) this.findViewById(R.id.songLyrics);
+		songTitleTxtView = (TextView) this.findViewById(R.id.songTitle);
+		songComposerTxtView = (TextView) this.findViewById(R.id.songComposer);
+		songLyricsTxtView = (TextView) this.findViewById(R.id.songLyrics);
 		
-		AppUtils.setRobotoLightFont(this, songTitle);
-		AppUtils.setRobotoThinFont(this, songComposer);
-		AppUtils.setRobotoLightFont(this, songLyrics);
+		AppUtils.setRobotoLightFont(this, songTitleTxtView);
+		AppUtils.setRobotoThinFont(this, songComposerTxtView);
+		AppUtils.setRobotoLightFont(this, songLyricsTxtView);
 		
 		try {
 			XMLParser parser = new XMLParser();
@@ -78,31 +80,26 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 				Element e = (Element) nl.item(0);
 
 				// Set values to each textView
-				songTitle.setText(parser.getValue(e, AppUtils.KEY_SONG_TITLE).toUpperCase());
+				songTitleTxtView.setText(parser.getValue(e, AppUtils.KEY_SONG_TITLE).toUpperCase());
 				if (parser.getValue(e, AppUtils.KEY_SONG_COMPOSER) != null)
-					songComposer.setText("(" + parser.getValue(e, AppUtils.KEY_SONG_COMPOSER)
+					songComposerTxtView.setText("(" + parser.getValue(e, AppUtils.KEY_SONG_COMPOSER)
 							+ ")");
-				songLyrics.setText(parser.getValue(e, AppUtils.KEY_SONG_LYRICS));
+				songLyricsTxtView.setText(parser.getValue(e, AppUtils.KEY_SONG_LYRICS));
 				
+				//Get the YouTube video Code
 				youTubeVideoCode = parser.getValue(e, AppUtils.KEY_SONG_VIDEO);
 				
-				//Set the song if it will be added as favorite
-				setSong2Fav(parser.getValue(e, AppUtils.KEY_SONG_TITLE) + ":" + songId);
+				//Set the song title if it will be added as favorite
+				songTitle = parser.getValue(e, AppUtils.KEY_SONG_TITLE);
 				
 			}
 		} catch (NotFoundException e) {
 			Log.e(this.getLocalClassName(), "the " + songId
 					+ " XML file was not found");
-			songLyrics.setText(R.string.lyricsError);
-			addToFavIcon.setVisibility(ViewGroup.GONE);
+			songLyricsTxtView.setText(R.string.lyricsError);
+			addToFavIconImgView.setVisibility(ViewGroup.GONE);
 		}
 		
-		SharedPreferences appPrefs = getSharedPreferences(
-				"com.juannale.pearljamlyricsapp_preferences", MODE_PRIVATE);
-		favs = appPrefs.getString("favorites", "");
-		
-		
-			
 		//If the song has a video code... initialize the Player View
 		youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
 		
@@ -114,31 +111,29 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		invalidateOptionsMenu();
 		
 		//set the add to favorites icon
-		addToFavIcon = (ImageView) findViewById(R.id.songLyricsAddToFav);
+		addToFavIconImgView = (ImageView) findViewById(R.id.songLyricsAddToFav);
+		
+		final PearlJamLyricsAppDAO dao = new PearlJamLyricsAppDAO(this);
 		
 		//if the song is in the favorites list, change the image 
-		if (favs.contains(getSong2Fav())) 
+		if (dao.isFavorite(songId)) 
 			//set the image to full star
-			addToFavIcon.setImageResource(R.drawable.ic_sel_fav);
+			addToFavIconImgView.setImageResource(R.drawable.ic_sel_fav);
 		
-		addToFavIcon.setOnClickListener(new OnClickListener() {
+		addToFavIconImgView.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				
 				String toastMessage="";
 				
-				SharedPreferences favsPrefs = getSharedPreferences(
-						"com.juannale.pearljamlyricsapp_preferences", MODE_PRIVATE);
-				favs = favsPrefs.getString("favorites", "");	
-				
 				// Search if the song was already saved in the favorites
-				if (favs.contains(getSong2Fav())) {
+				if (dao.isFavorite(songId)) {
 					//set the image to empty star
-					addToFavIcon.setImageResource(R.drawable.ic_add_fav);
+					addToFavIconImgView.setImageResource(R.drawable.ic_add_fav);
 					
 					//removes the song from the favorites list
-					ArrayList<HashMap<String, String>> favsList = AppUtils.getFavList(favs);
+//					ArrayList<HashMap<String, String>> favsList = AppUtils.getFavList(favs);
 					
 					
 					//vibrate and show the toast message
@@ -148,28 +143,25 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 					toastMessage = getResources().getString(
 							R.string.songRemovedFromFavs);
 				} else {
-					//set the image to full star
-					addToFavIcon.setImageResource(R.drawable.ic_sel_fav);
+					long insertResult;
 					//Vibrates when the song is added to the favorites
 					Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 					vib.vibrate(200);
 					
 					// Save the song in the favorites
-					SharedPreferences.Editor prefsEditor = favsPrefs.edit();
-
-					// Check if it was the first favorite added into the list
-					if (favs.equals("")) {
-						prefsEditor.putString("favorites", getSong2Fav());
+					insertResult = dao.insertFavorite(songId, songTitle);
+					
+					if(insertResult!=-1){
+						//set the image to full star
+						addToFavIconImgView.setImageResource(R.drawable.ic_sel_fav);
+						// set the toast message 
+						toastMessage = getResources().getString(
+								R.string.songAddedtoFavs);
 					} else {
-						prefsEditor.putString("favorites", favs + "#"
-								+ getSong2Fav());
+						// set the toast message 
+						toastMessage = "error adding the song...";//getResources().getString(
+								//R.string.songAddedtoFavs);
 					}
-
-					prefsEditor.commit();
-
-					// the song was added to the favorites
-					toastMessage = getResources().getString(
-							R.string.songAddedtoFavs);
 				}
 				// the song was added to the favorites
 				Toast toast = Toast.makeText(getApplicationContext(), toastMessage,
@@ -237,45 +229,25 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
     protected YouTubePlayer.Provider getYouTubePlayerProvider() {
       return (YouTubePlayerView) findViewById(R.id.youtube_view);
     }
-    
-    /**
-	 * To get the value of the current song
-	 * 
-	 * @return String
-	 */
-	public String getSong2Fav() {
-		return song2Fav;
-	}
-
-	/**
-	 * To set the value of the current song
-	 * 
-	 * @param song2Fav
-	 */
-	public void setSong2Fav(String song2Fav) {
-		this.song2Fav = song2Fav;
-	}
-   
 	
 	/**
 	 * To set the lyrics font size
 	 */
 	public boolean setFontSize(MenuItem item){
 		
-		int fontSize=14;
+		float fontSize=14;
 		int itemId = item.getItemId();
-		songLyrics = (TextView) findViewById(R.id.songLyrics);
-		
+		songLyricsTxtView = (TextView) findViewById(R.id.songLyrics);
 		
 		//Set the size depending on the menu item selected
 		if(itemId == R.id.action_font_size_small)
-			fontSize = 12;
+			fontSize = getResources().getDimension(R.dimen.font_size_small_size);
 		else if	(itemId == R.id.action_font_size_medium)	
-			fontSize = 14;
+			fontSize = getResources().getDimension(R.dimen.font_size_medium_size);
 		else if	(itemId == R.id.action_font_size_large)
-			fontSize = 16;
+			fontSize = getResources().getDimension(R.dimen.font_size_large_size);
 			
-		songLyrics.setTextSize(fontSize);
+		songLyricsTxtView.setTextSize(fontSize);
 		return true;
 	}
    

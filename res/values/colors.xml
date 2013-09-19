@@ -1,8 +1,8 @@
 <resources>
     <!-- Custom colors -->
-    <color name="dark_blue">#2b579a</color>
-	<color name="light_blue">#c2d5f2</color>
+    <color name="dark_blue">#2b579a</color><!-- primary color -->
+	<color name="light_blue">#c2d5f2</color> <!-- secondary color -->
 	<color name="light_grey">#fff6f6f6</color>
-	<color name="grey_background">#e2e2e2</color>
-    <color name="semi_transparent">#a6000000</color>
+	<color name="grey_background">#e2e2e2</color><!-- background color -->
+    <color name="semi_transparent">#66000000</color><!-- 40% opacity -->
 </resources>  

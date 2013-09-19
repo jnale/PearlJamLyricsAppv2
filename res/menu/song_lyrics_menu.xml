@@ -15,15 +15,15 @@
         <menu>
             <item 
                 android:id="@+id/action_font_size_small"
-                android:title="Small"
+                android:title="@string/action_font_size_small"
                 android:onClick="setFontSize"/>
             <item 
                 android:id="@+id/action_font_size_medium"
-                android:title="Medium"
+                android:title="@string/action_font_size_medium"
                 android:onClick="setFontSize"/>
             <item 
                 android:id="@+id/action_font_size_large"
-                android:title="Large"
+                android:title="@string/action_font_size_large"
                 android:onClick="setFontSize"/>
             
         </menu>

@@ -19,6 +19,7 @@
         android:background="@color/light_grey"/>
     
     <View 
+        android:id="@+id/colorLine"
         android:background="@color/light_blue" 
         android:layout_width="fill_parent" 
         android:layout_height="2dp" />

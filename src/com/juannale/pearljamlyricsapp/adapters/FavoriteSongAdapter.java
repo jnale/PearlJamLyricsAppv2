@@ -1,12 +1,9 @@
 package com.juannale.pearljamlyricsapp.adapters;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import com.juannale.pearljamlyricsapp.R;
-import com.juannale.pearljamlyricsapp.utils.AppUtils;
+import java.util.List;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +11,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.juannale.pearljamlyricsapp.R;
+import com.juannale.pearljamlyricsapp.utils.AppUtils;
+
 public class FavoriteSongAdapter extends BaseAdapter {
 
 	private Activity activity;
-    private ArrayList<HashMap<String, String>> data;
+    private List<ContentValues> data;
     private static LayoutInflater inflater=null;
     private String activityName;
     
-    public FavoriteSongAdapter(Activity a, ArrayList<HashMap<String, String>> d) {
+    public FavoriteSongAdapter(Activity a, List<ContentValues> d) {
         activity = a;
         data=d;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -47,11 +47,8 @@ public class FavoriteSongAdapter extends BaseAdapter {
         if(convertView==null)
         	vi = inflater.inflate(R.layout.song_list_row, null);
         
-        HashMap<String, String> song = new HashMap<String, String>();
-        song = data.get(position);
-        
         TextView songTitle = (TextView) vi.findViewById(R.id.songTitle); // song title
-        songTitle.setText(song.get(AppUtils.KEY_SONG_TITLE)); //set text
+        songTitle.setText(data.get(position).getAsString(AppUtils.KEY_SONG_TITLE)); //set text
         //apply roboto font
         AppUtils.setRobotoLightFont(activity.getBaseContext(), songTitle);
         
