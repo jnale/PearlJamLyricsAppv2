@@ -74,8 +74,6 @@ public class TabFragment extends SherlockFragment{
 			// adding each child node to HashMap key => value
 			map.put(AppUtils.KEY_ALBUM_ID, parser.getValue(e, AppUtils.KEY_ALBUM_ID));
 			map.put(AppUtils.KEY_ALBUM_NAME, parser.getValue(e, AppUtils.KEY_ALBUM_NAME));
-			map.put(AppUtils.KEY_ALBUM_LABEL, parser.getValue(e, AppUtils.KEY_ALBUM_LABEL));
-			map.put(AppUtils.KEY_ALBUM_RELEASE_YEAR, parser.getValue(e, AppUtils.KEY_ALBUM_RELEASE_YEAR));
 
 			// adding HashList to ArrayList
 			albumList.add(map);
@@ -103,8 +101,6 @@ public class TabFragment extends SherlockFragment{
 						SongsByAlbumActivity.class);
 				intent.putExtra(AppUtils.KEY_ALBUM_ID, albumMap.get(AppUtils.KEY_ALBUM_ID));
 				intent.putExtra(AppUtils.KEY_ALBUM_NAME, albumMap.get(AppUtils.KEY_ALBUM_NAME));
-				intent.putExtra(AppUtils.KEY_ALBUM_RELEASE_YEAR, albumMap.get(AppUtils.KEY_ALBUM_RELEASE_YEAR));
-				intent.putExtra(AppUtils.KEY_ALBUM_LABEL, albumMap.get(AppUtils.KEY_ALBUM_LABEL));
 				startActivity(intent);
 			}
 		});

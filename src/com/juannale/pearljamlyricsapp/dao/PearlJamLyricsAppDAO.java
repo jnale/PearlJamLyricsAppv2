@@ -83,14 +83,6 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
         
         return result;
     }
-    
-
-    //---deletes a particular favorite---
-    public boolean deleteFavorite(long rowId)
-    {
-    	SQLiteDatabase db = this.getReadableDatabase();
-        return db.delete(DATABASE_FAVORITES_TABLE, FAVORITE_TABLE_ID + "=" + rowId, null) > 0;
-    }
 
     //---retrieves all the favorites---
     public List<ContentValues> getAllFavorites()
@@ -136,6 +128,30 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
     	} catch(SQLException e){
     		e.printStackTrace();
     	}
+        db.close();
+        
+        return result;
+    }
+    
+    //---deletes all favorites from table---
+    public void deleteAllFavorites()
+    {
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	
+        db.execSQL("DELETE FROM " + DATABASE_FAVORITES_TABLE);
+        db.close();
+        
+    }
+    
+    
+  //---deletes a particular favorite---
+    public boolean deleteFavorite(String songId)
+    {
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	
+    	boolean result = false;
+    	
+        result = db.delete(DATABASE_FAVORITES_TABLE, FAVORITE_TABLE_SONG_ID + "='" + songId +"'", null) > 0;
         db.close();
         
         return result;

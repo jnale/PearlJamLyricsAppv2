@@ -19,7 +19,7 @@
     <!-- album data layout -->
 	<LinearLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="60dp"
+	    android:layout_height="wrap_content"
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentLeft="true"
 	    android:background="@color/semi_transparent"
@@ -29,18 +29,16 @@
 	    <TextView android:id="@+id/albumTitle" 
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_marginTop="3dp"
-	        android:layout_marginLeft="5dp"
-	        android:textSize="14sp"
+	        android:layout_marginTop="8dp"
+	        android:layout_marginLeft="8dp"
+	        android:layout_marginBottom="8dp"
+	        android:textSize="@dimen/album_title_font_size"
+	        android:shadowColor="@android:color/black"
+	        android:shadowRadius="1.5"
+	        android:shadowDx="3"
+	        android:shadowDy="3"
 	        android:textColor="@android:color/white"/>
-	
-	    <!-- album year and label -->
-	    <TextView android:id="@+id/albumYearAndLabel" 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="5dp"
-	        android:textSize="12sp"
-	        android:textColor="@android:color/white"/>
+
 	</LinearLayout>
 
 </RelativeLayout>

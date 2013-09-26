@@ -4,17 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     
-    <!-- Song Title-->
-    <TextView
-        android:id="@+id/songTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textSize="18sp" 
-        android:gravity="center_vertical|left"/>
-
     <!-- Favorite icon -->
     <ImageView
         android:contentDescription="@string/favorite_icon"
@@ -23,6 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="10dp"
+        android:layout_marginRight="8dp"
         android:src="@drawable/ic_add_fav_small" />
+    
+    <!-- Song Title-->
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/addToFavIcon"
+        android:ellipsize="end"
+        android:gravity="center_vertical|left"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textSize="18sp" />
     
 </RelativeLayout>

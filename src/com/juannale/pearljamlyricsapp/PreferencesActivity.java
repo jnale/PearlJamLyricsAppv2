@@ -9,17 +9,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.widget.Toast;
 
 import com.actionbarsherlock.ActionBarSherlock;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.internal.ActionBarSherlockNative;
 import com.actionbarsherlock.view.MenuItem;
+import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 
 public class PreferencesActivity extends SherlockPreferenceActivity implements OnSharedPreferenceChangeListener{
 
 	public static final String KEY_PREF_OPEN_LIC = "pref_open_source_lic";
 	public static final String KEY_RATE_APP = "pref_rate_app";
 	public static final String KEY_DEV_BY = "pref_developed_by";
+	public static final String KEY_DELETE_FAVS = "pref_clear_favs";
+	
+	private PearlJamLyricsAppDAO dao;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,9 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
         
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.preferences);
+        
+        dao = new PearlJamLyricsAppDAO(this);
+        
     }
 	
 	@Override
@@ -67,6 +75,31 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
             final Preference preference) {
 
+		//If user click on the 'delete all favorites'
+		if(preference.getKey().equals(KEY_DELETE_FAVS)){
+			
+			AlertDialog.Builder clearAlert = new AlertDialog.Builder(this);
+			clearAlert.setTitle("Clear favorite's list?")
+				.setMessage("You will delete all your favorites!")
+				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						//delete all favorites from table and show a toast message
+						dao.deleteAllFavorites();
+						Toast.makeText(getBaseContext(), "all favorites were deleted", Toast.LENGTH_SHORT).show();
+					}
+				}).setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog,
+					int which) {
+				dialog.dismiss();
+			}
+		}).create().show();
+		}
+		
 		//If user click on the 'rate app' preference
 		if(preference.getKey().equals(KEY_RATE_APP)) {
 			Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -99,7 +132,7 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 	protected void showLicencesDialog(){
 		
 		AlertDialog.Builder LicenseDialog = new AlertDialog.Builder(this);
-		LicenseDialog.setTitle("Legal Notices").setPositiveButton("OK", 
+		LicenseDialog.setTitle("Legal Notices").setPositiveButton("Close", 
 				new DialogInterface.OnClickListener() {
 
 			@Override

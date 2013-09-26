@@ -80,19 +80,16 @@ public class AlbumAdapter extends BaseAdapter {
        
         viewHolder = new ViewHolder();
         viewHolder.albumTitle = (TextView)vi.findViewById(R.id.albumTitle); // album name 
-        viewHolder.yearAndLabel = (TextView)vi.findViewById(R.id.albumYearAndLabel); // year and label
         viewHolder.albumCover=(SquareImageView)vi.findViewById(R.id.albumCover); // thumb image
  
         AppUtils.setRobotoMediumFont(activity.getBaseContext(), viewHolder.albumTitle);
-        AppUtils.setRobotoLightFont(activity.getBaseContext(), viewHolder.yearAndLabel);
         
         HashMap<String, String> album = new HashMap<String, String>();
         album = data.get(position);
  
         // Setting values of list view
         viewHolder.albumTitle.setText(album.get(AppUtils.KEY_ALBUM_NAME));
-        viewHolder.yearAndLabel.setText( "(" + album.get(AppUtils.KEY_ALBUM_RELEASE_YEAR) + ") " + album.get(AppUtils.KEY_ALBUM_LABEL));
-        
+  
         try {
             Class<com.juannale.pearljamlyricsapp.R.drawable> res = R.drawable.class;
             Field field = res.getField(album.get(AppUtils.KEY_ALBUM_ID));
@@ -136,7 +133,6 @@ public class AlbumAdapter extends BaseAdapter {
 	
 	private static class ViewHolder {
 		TextView albumTitle;
-		TextView yearAndLabel;
 		SquareImageView albumCover;
 	}
 }

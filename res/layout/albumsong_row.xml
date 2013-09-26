@@ -15,36 +15,46 @@
         android:padding="10dp"
         android:background="@color/light_blue"/>
     
+    <!-- Favorite icon -->
+    <ImageView
+        android:contentDescription="@string/favorite_icon"
+        android:id="@+id/addToFavIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:src="@drawable/ic_add_fav_small" />
+    
     <!-- Name Of Song-->
  	 <TextView
-        android:id="@+id/songTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_alignTop="@+id/songNumber"
-        android:layout_toRightOf="@+id/songNumber"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textSize="18sp" />
+ 	     android:id="@+id/songTitle"
+ 	     android:layout_width="fill_parent"
+ 	     android:layout_height="wrap_content"
+ 	     android:layout_alignTop="@+id/songNumber"
+ 	     android:layout_marginLeft="5dp"
+ 	     android:layout_toLeftOf="@id/addToFavIcon"
+ 	     android:layout_toRightOf="@id/songNumber"
+ 	     android:ellipsize="end"
+ 	     android:maxLines="1"
+ 	     android:textSize="18sp" />
  
     <!-- Song Composer -->
     <TextView
         android:id="@+id/songComposer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_below="@id/songTitle"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/songNumber"
+        android:layout_toLeftOf="@id/addToFavIcon"
+        android:layout_toRightOf="@id/songNumber"
         android:textColor="#666"
         android:textSize="12sp" />
 
-    <ImageView
-        android:id="@+id/addToFavIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:paddingTop="20dp"
-        android:src="@drawable/ic_add_fav_small" />
+    
 
 </RelativeLayout>

@@ -3,61 +3,41 @@
 	<album>
 	       <id>ten</id>
 	       <name>Ten</name>
-	       <releaseYear>1991</releaseYear>
-	       <label>Sony Music</label>
 	</album>
 	<album>
 	       <id>vs</id>
 	       <name>Vs.</name>
-	       <releaseYear>1993</releaseYear>
-	       <label>Sony Music</label>
 	</album>
 	<album>
 	       <id>vitalogy</id>
 	       <name>Vitalogy</name>
-	       <releaseYear>1994</releaseYear>
-	       <label>Sony Music</label>
 	 </album>
 	 <album>
 	       <id>nocode</id>
 	       <name>No Code</name>
-	       <releaseYear>1996</releaseYear>
-	       <label>Sony Music</label>
 	 </album>
 	 <album>
 	       <id>yield</id>
 	       <name>Yield</name>
-	       <releaseYear>1998</releaseYear>
-	       <label>Sony Music</label>
 	 </album>
 	 <album>
 	       <id>binaural</id>
 	       <name>Binaural</name>
-	       <releaseYear>2000</releaseYear>
-	       <label>Sony Music</label>
 	 </album>
 	 <album>
 	       <id>riotact</id>
 	       <name>Riot Act</name>
-	       <releaseYear>2002</releaseYear>
-	       <label>Sony Music</label>
 	 </album>
 	 <album>
 	       <id>pearljam</id>
 	       <name>Pearl Jam</name>
-	       <releaseYear>2006</releaseYear>
-	       <label>J Records</label>
 	 </album>
 	 <album>
 	       <id>backspacer</id>
 	       <name>Backspacer</name>
-	       <releaseYear>2009</releaseYear>
-	       <label>Monkeybrench Records</label>
 	 </album>
 	 <album>
 	       <id>lightningbolt</id>
 	       <name>Lightning Bolt</name>
-	       <releaseYear>2013</releaseYear>
-	       <label>Monkeybrench Records</label>
 	 </album>
 </albums>

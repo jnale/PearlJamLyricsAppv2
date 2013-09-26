@@ -63,7 +63,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
         
         AppUtils.setRobotoLightFont(this, albumTitle);
         
-        // Setting values of list view
+        // Setting values cover title
         albumTitle.setText(albumName);
         
         ImageView albumCover = (ImageView) findViewById(R.id.image_header);

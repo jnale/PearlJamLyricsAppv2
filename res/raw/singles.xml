@@ -3,43 +3,29 @@
     	<album>
                <id>holiday1993</id>
                <name>Ten Club Single 1993</name>
-               <releaseYear>1993</releaseYear>
-               <label>Sony Music</label>
          </album>
         <album>
                <id>merkinball</id>
                <name>Merkin Ball</name>
-               <releaseYear>1995</releaseYear>
-               <label>Sony Music</label>
          </album>
          <album>
                <id>lastkiss</id>
                <name>Last Kiss</name>
-               <releaseYear>1999</releaseYear>
-               <label>Sony Music</label>
          </album>
          <album>
                <id>manofthehour</id>
                <name>Man Of The Hour</name>
-               <releaseYear>2003</releaseYear>
-               <label>Sony Music</label>
          </album>
          <album>
                <id>holiday2008</id>
                <name>Ten Club Single 2008</name>
-               <releaseYear>2008</releaseYear>
-               <label>Monkeybrench Records</label>
          </album>
          <album>
                <id>ole</id>
                <name>Olé</name>
-               <releaseYear>2011</releaseYear>
-               <label>Monkeybrench Records</label>
          </album>
          <album>
                <id>holiday2011</id>
                <name>Ten Club Single 2011</name>
-               <releaseYear>2012</releaseYear>
-               <label>Monkeybrench Records</label>
          </album>
 </albums>

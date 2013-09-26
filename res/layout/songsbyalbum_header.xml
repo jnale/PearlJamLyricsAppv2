@@ -16,7 +16,7 @@
 	<!-- album data layout -->
 	<RelativeLayout
 	    android:layout_width="fill_parent"
-	    android:layout_height="45dp"
+	    android:layout_height="60dp"
 	    android:layout_gravity="bottom"
 	    android:background="@color/semi_transparent"
 	    android:orientation="horizontal">
@@ -26,23 +26,15 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="match_parent" 
 	        android:paddingLeft="10dp"
-	        android:textColor="#FFF"
+	        android:textColor="@android:color/white"
 	        android:gravity="left|center_vertical"
 	        android:clickable="false" 
-	        android:textSize="20sp"/>
-<!--  
-	    <ImageView
-	        android:contentDescription="@string/album_info_icon"
-	        android:id="@+id/albumInfoIcon"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentRight="true"
-	        android:layout_centerVertical="true"
-	        android:paddingRight="10dp"
-	        android:src="@drawable/ic_info"
-	        android:background="@color/light_blue"
-	        android:visibility="gone"/>
--->	    
+	        android:textSize="22sp"
+	        android:shadowColor="@android:color/black"
+	        android:shadowRadius="1.5"
+	        android:shadowDx="3"
+	        android:shadowDy="3"/>
+
 	</RelativeLayout>
 
 </FrameLayout>

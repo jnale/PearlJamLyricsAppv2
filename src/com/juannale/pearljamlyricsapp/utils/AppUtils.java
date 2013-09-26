@@ -1,11 +1,5 @@
 package com.juannale.pearljamlyricsapp.utils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-
-import com.juannale.pearljamlyricsapp.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +7,8 @@ import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.juannale.pearljamlyricsapp.R;
 
 public class AppUtils {
 
@@ -39,11 +35,8 @@ public class AppUtils {
  	public static final String KEY_SONG_VIDEO = "video";
  	public static final String KEY_SONG_LYRICS = "lyrics";
  	
- 	//Key for the YoutTube API
+ 	//Key for the YoutTube API --debug (replace with production one)
  	public static final String YOUTUBE_API_KEY = "AIzaSyB75D6vuIzBqWNBGIEdO_OV6FPKP7iwjBk";
- 	
- 	//Key for the Feedback v2 API
- 	public static final String FEEDBACK_API_KEY = "AF-810DACB5819F-FF";
 
 	//Set Roboto Regular Font
     public static void setRobotoRegularFont (Context context, View view)
@@ -85,6 +78,11 @@ public class AppUtils {
         setFont(view, robotoLightTypeFace);
     }
     
+    /**
+     * Set the typeface font to the given view
+     * @param view
+     * @param robotoTypeFace
+     */
     private static void setFont (View view, Typeface robotoTypeFace)
     {
         if (view instanceof ViewGroup)
@@ -100,6 +98,10 @@ public class AppUtils {
         }
     }
     
+    /**
+     * Creates the intent to send an email with the user feedback
+     * @param activity
+     */
     public static void sendFeedback(Activity activity){
     	
     	Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -108,37 +110,5 @@ public class AppUtils {
 		emailIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getResources().getString(R.string.feedback_email_subject));
 		activity.startActivity(Intent.createChooser(emailIntent, activity.getResources().getString(R.string.feedback_email_alertTitle)));
     	
-    }
-    
-    /**
-     * This method will return an ArrayList with all the song included into
-     * the favorites
-     * 
-     * @param favsInPrefs
-     * @return
-     */
-    public static ArrayList<HashMap<String, String>> getFavList(String favsInPrefs){
-    	ArrayList<HashMap<String, String>> favoriteList = new ArrayList<HashMap<String, String>>();
-    	
-    	String[] favsArray = favsInPrefs.split("#");
-    	ArrayList<String> elements = new ArrayList<String>();
-		Collections.addAll(elements, favsArray);
-
-		// looping through all songs
-		for (int i = 0; i < elements.size(); i++) {
-			// creating new HashMap
-			HashMap<String, String> map = new HashMap<String, String>();
-			String song = (String) elements.get(i);
-			String[] element = song.split(":", 2);
-
-			// adding each child node to HashMap key => value
-			map.put(KEY_SONG_ID, element[1]);
-			map.put(KEY_SONG_TITLE, element[0]);
-
-			// adding HashList to ArrayList
-			favoriteList.add(map);
-		}
-    	
-    	return favoriteList;
     }
 }

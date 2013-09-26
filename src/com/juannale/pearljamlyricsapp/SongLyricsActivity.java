@@ -1,8 +1,5 @@
 package com.juannale.pearljamlyricsapp;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -10,14 +7,13 @@ import org.w3c.dom.NodeList;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +48,9 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		//Remove the app title and show the home as up icon
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        
+        //Activity transition
+//        overridePendingTransition(R.anim.anim_in, 0);
 		
 		Bundle bundle = this.getIntent().getExtras();
 		songId = bundle.getString(AppUtils.KEY_SONG_ID);
@@ -126,26 +125,29 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 			public void onClick(View v) {
 				
 				String toastMessage="";
+				Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 				
 				// Search if the song was already saved in the favorites
 				if (dao.isFavorite(songId)) {
-					//set the image to empty star
-					addToFavIconImgView.setImageResource(R.drawable.ic_add_fav);
 					
-					//removes the song from the favorites list
-//					ArrayList<HashMap<String, String>> favsList = AppUtils.getFavList(favs);
+					//removes the song from the favorites table
+					if(dao.deleteFavorite(songId)){
+						
+						//set the image to empty star
+						addToFavIconImgView.setImageResource(R.drawable.ic_add_fav);
+						
+						//vibrate and show the toast message
+						vib.vibrate(200);
+						
+						toastMessage = getResources().getString(
+								R.string.songRemovedFromFavs);
+					} else{
+						toastMessage = "error deleting the song...";
+					}
 					
-					
-					//vibrate and show the toast message
-					Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-					vib.vibrate(200);
-					
-					toastMessage = getResources().getString(
-							R.string.songRemovedFromFavs);
 				} else {
 					long insertResult;
 					//Vibrates when the song is added to the favorites
-					Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 					vib.vibrate(200);
 					
 					// Save the song in the favorites
@@ -154,6 +156,7 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 					if(insertResult!=-1){
 						//set the image to full star
 						addToFavIconImgView.setImageResource(R.drawable.ic_sel_fav);
+						
 						// set the toast message 
 						toastMessage = getResources().getString(
 								R.string.songAddedtoFavs);

@@ -1,26 +1,21 @@
 package com.juannale.pearljamlyricsapp.adapters;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.juannale.pearljamlyricsapp.R;
-import com.juannale.pearljamlyricsapp.SongsByAlbumActivity;
-import com.juannale.pearljamlyricsapp.utils.AppUtils;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.juannale.pearljamlyricsapp.R;
+import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
+import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
 public class AlbumSongAdapter extends BaseAdapter {
 	
@@ -28,6 +23,8 @@ public class AlbumSongAdapter extends BaseAdapter {
     private ArrayList<HashMap<String, String>> data;
     private static LayoutInflater inflater=null;
 	
+    private PearlJamLyricsAppDAO dao;
+    
 	public AlbumSongAdapter(Activity a, ArrayList<HashMap<String, String>> d) {
         activity = a;
         data=d;
@@ -60,7 +57,7 @@ public class AlbumSongAdapter extends BaseAdapter {
 		TextView songTitleView = (TextView) vi.findViewById(R.id.songTitle);
 		TextView songComposerView = (TextView) vi.findViewById(R.id.songComposer);
 		
-		ImageView songAddToFavView = (ImageView) vi.findViewById(R.id.addToFavIcon);
+		ImageView songAddToFavImgView = (ImageView) vi.findViewById(R.id.addToFavIcon);
 		
 		HashMap<String, String> songMap = new HashMap<String, String>();
 		songMap = data.get(position);
@@ -75,14 +72,20 @@ public class AlbumSongAdapter extends BaseAdapter {
 		AppUtils.setRobotoLightFont(activity.getBaseContext(), songTitleView);
 		AppUtils.setRobotoLightFont(activity.getBaseContext(), songComposerView);
 		
-//		songAddToFavView.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				ImageView icon = (ImageView) v;
-//				icon.setImageResource(R.drawable.ic_add_fav);
-//			}
-//		}); 		
+		dao = new PearlJamLyricsAppDAO(activity);
+		
+		//If the song is already in the favorite's list, change the star image
+		if (dao.isFavorite(songMap.get(AppUtils.KEY_SONG_ID)))
+			songAddToFavImgView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_sel_fav_small));
+		
+		songAddToFavImgView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ImageView icon = (ImageView) v;
+				icon.setImageResource(R.drawable.ic_sel_fav_small);
+			}
+		}); 		
 		return vi;
 	}
 

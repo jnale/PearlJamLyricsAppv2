@@ -15,7 +15,7 @@
     	<item>juan.nale@gmail.com</item>    
 	</string-array>
     <string name="feedback_email_subject">Feedback about Pearl Jam Lyrics App</string>
-    <string name="feedback_email_alertTitle">Send Feedback:</string>
+    <string name="feedback_email_alertTitle">Send Feedback</string>
     
     <!-- action bar labels -->
     <string name="action_settings">Settings</string>
@@ -292,7 +292,8 @@
         <!-- Every Mother Counts -->
         <item>Skipping:s361</item>
 		<!-- Lightning Bolt -->
-		<item>Mind Your Manners:s362</item>
+		<item>Mind Your Manners:s363</item>
+		<item>Sirens:s365</item>
 	</string-array>
     
 </resources>
