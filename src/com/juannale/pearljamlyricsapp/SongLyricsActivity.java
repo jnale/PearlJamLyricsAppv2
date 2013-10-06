@@ -214,6 +214,25 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 					item.setIcon(R.drawable.ic_action_youtube);
 				}
 				return true;     
+				
+			case R.id.action_favorites:	
+				//Go to the favorites activity
+				Intent favoritesIntent = new Intent(this, 
+	            		FavoritesActivity.class);
+				startActivity(favoritesIntent);
+				return true;
+		
+			case R.id.action_settings:
+				//Go to the settings activity
+				Intent settingsIntent = new Intent(this, 
+	            		PreferencesActivity.class);
+				startActivity(settingsIntent);
+				return true;     
+				
+			case R.id.action_send_feedback:	
+				//Send feedback
+				AppUtils.sendFeedback(this);
+		        return true;
 		}
 		
 		return super.onOptionsItemSelected(item);

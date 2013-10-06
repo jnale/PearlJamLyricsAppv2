@@ -4,11 +4,8 @@ import java.util.List;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +22,6 @@ public class FavoritesActivity extends SherlockActivity {
 	private TextView listTitle;
 	private ListView myListView;
 	private FavoriteSongAdapter adapter;
-	private int fav2Remove;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,28 +44,10 @@ public class FavoritesActivity extends SherlockActivity {
 			// Getting adapter by passing data ArrayList
 			adapter = new FavoriteSongAdapter(this, favoriteList);
 			myListView.setAdapter(adapter);
+			myListView.setItemsCanFocus(true);
 			
 			TextView titleView = (TextView) findViewById(R.id.favsTitle);
 			AppUtils.setRobotoLightFont(this, titleView);
-
-			// Click event for single list row
-			myListView.setOnItemClickListener(new OnItemClickListener() {
-			
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-
-					ContentValues values = (ContentValues) favoriteList
-							.get(position);
-
-					Intent intent = new Intent(FavoritesActivity.this,
-							SongLyricsActivity.class);
-					intent.putExtra(AppUtils.KEY_SONG_ID, values.getAsString(AppUtils.KEY_SONG_ID));
-					startActivity(intent);
-
-				}
-
-			});
 			
 		} else {
 			// Change screen title when no favs were added already
@@ -106,6 +84,20 @@ public class FavoritesActivity extends SherlockActivity {
 	            finish();
 	            return true;
 		
+			case R.id.action_grid:	
+				//Go to the song list activity
+				Intent albumViewIntent = new Intent(this, 
+	            		MainActivity.class);
+				startActivity(albumViewIntent);
+				return true;    
+	            
+			case R.id.action_list:	
+				//Go to the song list activity
+				Intent songListIntent = new Intent(this, 
+	            		SongsListActivity.class);
+				startActivity(songListIntent);
+				return true;    
+	            
 			case R.id.action_settings:
 				//Go to the settings activity
 				Intent settingsIntent = new Intent(this, 
@@ -122,23 +114,5 @@ public class FavoritesActivity extends SherlockActivity {
 		
 		return super.onOptionsItemSelected(item);
 	}	
-	
-	/**
-	 * fav2Remove getter
-	 * 
-	 * @return String
-	 */
-	public int getFav2Remove() {
-		return fav2Remove;
-	}
-
-	/**
-	 * fav2Remove setter
-	 * 
-	 * @param fav2Remove
-	 */
-	public void setFav2Remove(int fav2Remove) {
-		this.fav2Remove = fav2Remove;
-	}
 	
 }

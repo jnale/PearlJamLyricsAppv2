@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-	android:background="@color/light_grey"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <TextView
@@ -14,7 +14,7 @@
         android:paddingRight="10dp" 
         android:paddingBottom="5dp" 
         android:text="@string/favsTitle"
-        android:textSize="25sp" 
+        android:textSize="20sp" 
         android:textStyle="bold" 
         android:background="@color/light_grey"/>
     
@@ -26,9 +26,9 @@
 
     <ListView
         android:id="@+id/favsList"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:dividerHeight="1dp"
-        android:listSelector="@drawable/list_selector" />
+        android:cacheColorHint="@android:color/transparent"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:listSelector="@drawable/list_selector"
+     	 />
 </LinearLayout>

@@ -2,7 +2,11 @@
     <!-- Custom colors -->
     <color name="dark_blue">#2b579a</color><!-- primary color -->
 	<color name="light_blue">#c2d5f2</color> <!-- secondary color -->
-	<color name="light_grey">#fff6f6f6</color>
+	<color name="light_grey">#fff6f6f6</color> <!-- grey color for some backgrounds -->
+	
 	<color name="grey_background">#e2e2e2</color><!-- background color -->
     <color name="semi_transparent">#66000000</color><!-- 40% opacity -->
+    
+    <color name="seconday_font_color">#666</color>
+    
 </resources>  

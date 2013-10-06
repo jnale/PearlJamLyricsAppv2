@@ -14,7 +14,7 @@
     <string-array name="feedback_email_address">
     	<item>juan.nale@gmail.com</item>    
 	</string-array>
-    <string name="feedback_email_subject">Feedback about Pearl Jam Lyrics App</string>
+    <string name="feedback_email_subject">Pearl Jam Lyrics App: Feedback</string>
     <string name="feedback_email_alertTitle">Send Feedback</string>
     
     <!-- action bar labels -->
@@ -49,6 +49,7 @@
     <string name="album_image">album cover</string>
     <string name="album_info_icon">album info</string>
     <string name="favorite_icon">favorite icon</string>
+    <string name="delete_icon">delete icon</string>
     
     <!-- tabs labels -->
     <string-array name="album_tabs">
@@ -58,8 +59,8 @@
 	</string-array>
 	
     <!-- Preferences -->
-    <string name="pref_show_video_title">Show video ON</string>
-    <string name="pref_show_video">Check this preference if you want to see always the video in the lyrics window</string>
+    <string name="pref_show_video_title">Always show video</string>
+    <string name="pref_show_video">Check this preference if you want to see always the video opened in the lyrics</string>
     <string name="pref_clear_favorites_title">Clear Favorites</string>
     <string name="pref_clear_favorites">Delete all the saved songs in favorites</string>
     <string name="pref_general">General</string>

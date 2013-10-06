@@ -23,10 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:paddingRight="5dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
+        android:background="@color/light_blue"
         android:src="@drawable/ic_add_fav_small" />
     
     <!-- Name Of Song-->
@@ -52,9 +53,7 @@
         android:layout_marginTop="1dip"
         android:layout_toLeftOf="@id/addToFavIcon"
         android:layout_toRightOf="@id/songNumber"
-        android:textColor="#666"
+        android:textColor="@color/seconday_font_color"
         android:textSize="12sp" />
-
-    
 
 </RelativeLayout>

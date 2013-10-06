@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +23,8 @@ public class AlbumSongAdapter extends BaseAdapter {
 	private Activity activity;
     private ArrayList<HashMap<String, String>> data;
     private static LayoutInflater inflater=null;
+    private Drawable changeIconTo;
+    private boolean isFavorite = false;
 	
     private PearlJamLyricsAppDAO dao;
     
@@ -47,7 +50,7 @@ public class AlbumSongAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		View vi=convertView;
 		
 		if(convertView==null)
@@ -75,15 +78,26 @@ public class AlbumSongAdapter extends BaseAdapter {
 		dao = new PearlJamLyricsAppDAO(activity);
 		
 		//If the song is already in the favorite's list, change the star image
-		if (dao.isFavorite(songMap.get(AppUtils.KEY_SONG_ID)))
+		if (dao.isFavorite(songMap.get(AppUtils.KEY_SONG_ID))){
 			songAddToFavImgView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_sel_fav_small));
-		
+			changeIconTo = activity.getResources().getDrawable(R.drawable.ic_add_fav_small);
+			isFavorite = true;
+		} else {
+			changeIconTo = activity.getResources().getDrawable(R.drawable.ic_sel_fav_small);
+		}
+			
 		songAddToFavImgView.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				ImageView icon = (ImageView) v;
-				icon.setImageResource(R.drawable.ic_sel_fav_small);
+				icon.setImageDrawable(changeIconTo);
+				
+				if(!isFavorite){
+					dao.insertFavorite(data.get(position).get(AppUtils.KEY_SONG_ID), data.get(position).get(AppUtils.KEY_SONG_TITLE));
+				} else {
+					dao.deleteFavorite(data.get(position).get(AppUtils.KEY_SONG_ID));
+				}
 			}
 		}); 		
 		return vi;

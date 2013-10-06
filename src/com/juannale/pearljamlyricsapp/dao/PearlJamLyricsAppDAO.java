@@ -3,8 +3,6 @@ package com.juannale.pearljamlyricsapp.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.juannale.pearljamlyricsapp.utils.AppUtils;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,6 +10,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
 public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
 
@@ -43,6 +43,7 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
 		try {
 			createTables(db);
 		} catch (SQLException e) {
+			Log.e(TAG, "Unable to create the Favorites table");
 			e.printStackTrace();
 		}
 		
@@ -63,14 +64,17 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
 	 * Creates the data model
 	 * @param db
 	 */
-	private void createTables(SQLiteDatabase db) throws SQLException
-	{
+	private void createTables(SQLiteDatabase db) throws SQLException {
 		db.execSQL(FAVORITES_TABLE_CREATE);
 	}
 
-    //---insert a favorite into the database---
-    public long insertFavorite(String songId, String songTitle)
-    {
+    /**
+     * Insert a favorite into the table
+     * @param songId
+     * @param songTitle
+     * @return long
+     */
+	public long insertFavorite(String songId, String songTitle) {
     	SQLiteDatabase db = this.getReadableDatabase();
     	
     	long result;
@@ -84,9 +88,11 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
         return result;
     }
 
-    //---retrieves all the favorites---
-    public List<ContentValues> getAllFavorites()
-    {
+    /**
+     * Retrieves all the favorites from the table
+     * @return List<ContentValues>
+     */
+    public List<ContentValues> getAllFavorites() {
     	List<ContentValues> returnList = new ArrayList<ContentValues>();
     	
     	SQLiteDatabase db = this.getReadableDatabase();
@@ -105,14 +111,15 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
 		cursor.close();
 		db.close();
         
-		
-		
         return returnList;
     }
     
-    //---retrieves a particular favorite---
-    public boolean isFavorite(String songId)
-    {
+    /**
+     * Retrieves a particular favorite from a given songId
+     * @param songId
+     * @return boolean
+     */
+    public boolean isFavorite(String songId) {
     	
     	boolean result = false;
     	
@@ -126,6 +133,7 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
 	            result = true;
 	        }
     	} catch(SQLException e){
+    		Log.e(TAG, "Unable to query the table to know if the song is already a favorite");
     		e.printStackTrace();
     	}
         db.close();
@@ -133,9 +141,11 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
         return result;
     }
     
-    //---deletes all favorites from table---
-    public void deleteAllFavorites()
-    {
+    /**
+     * Deletes all the favorites from the table
+     */
+    public void deleteAllFavorites() {
+    	
     	SQLiteDatabase db = this.getReadableDatabase();
     	
         db.execSQL("DELETE FROM " + DATABASE_FAVORITES_TABLE);
@@ -144,9 +154,13 @@ public class PearlJamLyricsAppDAO extends SQLiteOpenHelper {
     }
     
     
-  //---deletes a particular favorite---
-    public boolean deleteFavorite(String songId)
-    {
+    /**
+     * Deletes a specific favorite
+     * @param songId
+     * @return boolean
+     */
+    public boolean deleteFavorite(String songId) {
+    	
     	SQLiteDatabase db = this.getReadableDatabase();
     	
     	boolean result = false;

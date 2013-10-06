@@ -125,7 +125,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
         AlbumSongAdapter adapter = new AlbumSongAdapter(this, songList);
         listView.setAdapter(adapter);
         
-     // Click event for single list row
+        //Click event for single list row
         listView.setOnItemClickListener(new OnItemClickListener() {
 
      			@Override
@@ -184,6 +184,26 @@ public class SongsByAlbumActivity extends SherlockActivity {
 			case R.id.action_album_info:
 				showAlbumInfoDialog(albumInfo);
 				return true;
+				
+			case R.id.action_favorites:	
+				//Go to the favorites activity
+				Intent favoritesIntent = new Intent(this, 
+	            		FavoritesActivity.class);
+				startActivity(favoritesIntent);
+				return true;
+		
+			case R.id.action_settings:
+				//Go to the settings activity
+				Intent settingsIntent = new Intent(this, 
+	            		PreferencesActivity.class);
+				startActivity(settingsIntent);
+				return true;     
+				
+			case R.id.action_send_feedback:	
+				//Send feedback
+				AppUtils.sendFeedback(this);
+		        return true;
+			
 		}
 		
 		return super.onOptionsItemSelected(item);
