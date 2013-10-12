@@ -9,12 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.view.View;
 import android.widget.Toast;
 
-import com.actionbarsherlock.ActionBarSherlock;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.internal.ActionBarSherlockNative;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 
 public class PreferencesActivity extends SherlockPreferenceActivity implements OnSharedPreferenceChangeListener{
@@ -42,6 +42,18 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
     }
 	
 	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);  //Analytics start
+	  }
+	
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance(this).activityStop(this);  //Analytics stop
+	  }
+	
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
 		switch (item.getItemId()){
@@ -63,15 +75,6 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 	}
 	
 	@Override
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-			String key) {
-		if (key.equals(KEY_PREF_OPEN_LIC)) {
-			
-		}
-		
-	}
-	
-	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
             final Preference preference) {
 
@@ -79,18 +82,22 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 		if(preference.getKey().equals(KEY_DELETE_FAVS)){
 			
 			AlertDialog.Builder clearAlert = new AlertDialog.Builder(this);
-			clearAlert.setTitle("Clear favorite's list?")
-				.setMessage("You will delete all your favorites!")
-				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			clearAlert.setTitle(getResources().getString(R.string.pref_clear_favorites_alert_title))
+				.setMessage(getResources().getString(R.string.pref_clear_favorites_alert_message))
+				.setPositiveButton(getResources().getString(R.string.dialog_yes)
+						, new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog,
 							int which) {
 						//delete all favorites from table and show a toast message
 						dao.deleteAllFavorites();
-						Toast.makeText(getBaseContext(), "all favorites were deleted", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext()
+								, getResources().getString(R.string.pref_clear_favortites_message)
+								, Toast.LENGTH_SHORT).show();
 					}
-				}).setNegativeButton("No", new DialogInterface.OnClickListener() {
+				}).setNegativeButton(getResources().getString(R.string.dialog_no)
+						, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog,
@@ -103,7 +110,7 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 		//If user click on the 'rate app' preference
 		if(preference.getKey().equals(KEY_RATE_APP)) {
 			Intent intent = new Intent(Intent.ACTION_VIEW);
-			intent.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.juannale.pearljamlyricsapp"));
+			intent.setData(Uri.parse(getResources().getString(R.string.pref_rate_app_url)));
 			startActivity(intent);
 			return true;
 		}
@@ -111,7 +118,7 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 		//If user click on the 'developed by' preference
 		if(preference.getKey().equals(KEY_DEV_BY)) {
 			Intent intent = new Intent(Intent.ACTION_VIEW);
-			intent.setData(Uri.parse("http://www.twitter.com/nachoNale"));
+			intent.setData(Uri.parse(getResources().getString(R.string.pref_developed_by_url)));
 			startActivity(intent);
 			return true;
 		}
@@ -130,9 +137,13 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 	 * Show dialog that cites licences sources
 	 */
 	protected void showLicencesDialog(){
+		View view = getLayoutInflater().inflate(R.layout.licences_layout, null);
+		
 		
 		AlertDialog.Builder LicenseDialog = new AlertDialog.Builder(this);
-		LicenseDialog.setTitle("Legal Notices").setPositiveButton("Close", 
+		LicenseDialog.setView(view);
+		LicenseDialog.setTitle(getResources().getString(R.string.pref_open_source_lic))
+					.setPositiveButton(getResources().getString(R.string.dialog_close), 
 				new DialogInterface.OnClickListener() {
 
 			@Override
@@ -140,9 +151,14 @@ public class PreferencesActivity extends SherlockPreferenceActivity implements O
 					int which) {
 				dialog.dismiss();
 			}
-		}).setMessage("software licences").create();
+		}).create().show();
 		
-		LicenseDialog.show();
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+			String key) {
+		// TODO Auto-generated method stub
 		
 	}
 }

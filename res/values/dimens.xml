@@ -9,8 +9,9 @@
     
     <!-- song lyrics font sizes -->
     <dimen name="song_lyrics_title">25sp</dimen>
-    <dimen name="font_size_small_size">10sp</dimen>
-	<dimen name="font_size_medium_size">12sp</dimen>
-	<dimen name="font_size_large_size">14sp</dimen>
+    <dimen name="song_lyrics_composer">13sp</dimen>
+    <dimen name="font_size_small_size">12sp</dimen>
+	<dimen name="font_size_medium_size">14sp</dimen>
+	<dimen name="font_size_large_size">18sp</dimen>
     
 </resources>

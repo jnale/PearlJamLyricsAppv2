@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:padding="10dp">
+        
+        <TextView 
+            android:id="@+id/licenseDialog_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@string/lic_alertDialog_text1"/>
+        
+        <TextView 
+            android:id="@+id/licenseDialog_librariesList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lic_libraries_text"/>
+        
+        <TextView 
+            android:id="@+id/licenseDialog_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/lic_alertDialog_text2"/>
+        
+        <TextView 
+            android:id="@+id/apache_license_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lic_apache_license_text"
+            android:textStyle="italic"
+            android:background="@color/grey_background"
+            android:typeface="monospace"
+            android:padding="15dp"/>
+        
+    </LinearLayout>
+</ScrollView>

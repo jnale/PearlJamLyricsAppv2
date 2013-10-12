@@ -18,6 +18,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.juannale.pearljamlyricsapp.adapters.SongAdapter;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
@@ -33,7 +34,6 @@ public class SongsListActivity extends SherlockActivity {
 	private ArrayList<HashMap<String, String>> sortedSongList = new ArrayList<HashMap<String, String>>();
 	int textlength = 0;
 	boolean listWasFiltered = false;
-	private String song2Fav;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class SongsListActivity extends SherlockActivity {
 		myListView = (ListView) findViewById(R.id.list);
 		myListView.setFastScrollEnabled(true);
 		// Getting adapter by passing data ArrayList
-		adapter = new SongAdapter(this, songList);
+		adapter = new SongAdapter(this, R.layout.song_list_row, songList);
 		myListView.setAdapter(adapter);
 		
 		// Click event for single list row
@@ -133,7 +133,7 @@ public class SongsListActivity extends SherlockActivity {
 				sortedSongList.clear();
 				sortedSongList = getSongsMapForAdapter(arr_sort);
 				myListView.setAdapter(new SongAdapter(
-						SongsListActivity.this, sortedSongList));
+						SongsListActivity.this, R.layout.song_list_row, sortedSongList));
 				listWasFiltered = true;
 
 			}
@@ -149,6 +149,18 @@ public class SongsListActivity extends SherlockActivity {
 		});
 
 	}
+	
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);  //Analytics start
+	  }
+	
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance(this).activityStop(this);  //Analytics stop
+	  }
 	
 	// Add the songs into a Map
 	private ArrayList<HashMap<java.lang.String, java.lang.String>> getSongsMapForAdapter(

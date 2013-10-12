@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.juannale.pearljamlyricsapp.adapters.AlbumSongAdapter;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 import com.juannale.pearljamlyricsapp.utils.XMLParser;
@@ -122,7 +123,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
 		}
         
         ListView listView = (ListView) findViewById(android.R.id.list);
-        AlbumSongAdapter adapter = new AlbumSongAdapter(this, songList);
+        AlbumSongAdapter adapter = new AlbumSongAdapter(this, R.layout.albumsong_row, songList);
         listView.setAdapter(adapter);
         
         //Click event for single list row
@@ -151,6 +152,18 @@ public class SongsByAlbumActivity extends SherlockActivity {
         albumInfo = loadAlbumInfo(albumInfoResourceId);
         
 	}
+	
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);  //Analytics start
+	  }
+	
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance(this).activityStop(this);  //Analytics stop
+	  }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -244,7 +257,7 @@ public class SongsByAlbumActivity extends SherlockActivity {
 		messageView.setPadding(10, 10, 10, 10);
 		AppUtils.setRobotoLightFont(this, messageView);
 		scroll.addView(messageView);
-		
+		scroll.setBackgroundColor(getResources().getColor(android.R.color.white));		
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(scroll);

@@ -6,6 +6,8 @@
     
     <!-- dialog buttons -->
     <string name="dialog_close">Close</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">Cancel</string>
     
     <!-- dialog titles -->
     <string name="dialog_title_albumInfo">Album Info</string>
@@ -41,9 +43,11 @@
     
     <!-- favorites activity -->
     <string name="favsTitle">Favorite songs</string>
-    <string name="howToAddFav">Long press a song to add it to your favorites or from the song lyrics screen icon</string>
+    <string name="howToAddFav">On the lists or song lyrics, press the star icon to add the song to your favorites</string>
     <string name="songAddedtoFavs">song added to favorites</string>
     <string name="songRemovedFromFavs">song removed from favorites</string>
+    <string name="errorRemovingSong">error removing the song form favorites&#8230;</string>
+    <string name="errorAddingSong">error adding the song to favorites&#8230;</string>
     
     <!-- image content descriptors -->
     <string name="album_image">album cover</string>
@@ -60,32 +64,36 @@
 	
     <!-- Preferences -->
     <string name="pref_show_video_title">Always show video</string>
-    <string name="pref_show_video">Check this preference if you want to see always the video opened in the lyrics</string>
+    <string name="pref_show_video">Check this preference if you want to see always the video in the open state in the lyrics screen</string>
     <string name="pref_clear_favorites_title">Clear Favorites</string>
     <string name="pref_clear_favorites">Delete all the saved songs in favorites</string>
+    <string name="pref_clear_favorites_alert_title">Clear favorite\'s list?</string>
+    <string name="pref_clear_favorites_alert_message">You will delete all your favorites!</string>
+    <string name="pref_clear_favortites_message">all favorites were deleted</string>
     <string name="pref_general">General</string>
     <string name="pref_about">About App</string>
-    <string name="pref_version_number_title">Compilation Version</string>
+    <string name="pref_version_number_title">App Version</string>
     <string name="pref_version_number">2.0 beta 1</string>
     <string name="pref_developed_by_title">Developed by</string>
     <string name="pref_developed_by">Juan Ignacio Nale</string>
+    <string name="pref_developed_by_url">http://www.twitter.com/nachoNale</string>
     <string name="pref_rate_app">Rate App</string>
-    <string name="pref_open_source_lic">Open Source Licences</string>
-
-    <string name="pref_font_size_dialog_title">Choose font size</string>
-    <string-array name="pref_font_size_values_labels">
-        <item>Small</item>
-        <item>Regular</item>
-        <item>Medium</item>
-        <item>Big</item>
-    </string-array>
-    
-    <string-array name="pref_font_size_values_values">
-        <item>12sp</item>
-        <item>14sp</item>
-        <item>16sp</item>
-        <item>18sp</item>
-    </string-array>
+    <string name="pref_rate_app_url">http://play.google.com/store/apps/details?id=com.juannale.pearljamlyricsapp</string>
+    <string name="pref_open_source_lic">Open Source Licenses</string>
+    <string name="lic_alertDialog_text1">This app is built using open source software:</string>
+    <string name="lic_libraries_text">- ActionBarSherlock\n\t(Copyright 2012 Jake Wharton)\n\n- ViewPagerIndicator\n
+        \t(Copyright 2012 Jake Wharton)\n\t(Copyright 2011 Patrik Åkerfeldt)\n\t(Copyright 2011 Francisco Figueiredo Jr.)\n\n
+        - FadingActionBar\n\t(Copyright 2013 Manuel Peinado)\n\n- ListViewAnimation\n\t(Copyright 2013 Niek Haarman)</string>
+    <string name="lic_alertDialog_text2">Each of the above projects is licensed under the Apache License, Version 2.0:</string>
+    <string name="lic_apache_license_text">
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+	</string>
     
     <!-- List of songs -->
     <string-array name="song_list">
@@ -222,7 +230,7 @@
         <item>Man Of The Hour:s205</item>
         <item>Santa Cruz:s206</item>
         <item>Golden State:s207</item>
-        <item>OlÃ©:s208</item>
+        <item>Ol&#233;:s208</item>
         <item>Better Things:s210</item>
         <item>Devil Doll:s211</item>
         <!-- Singles Soundtrack -->

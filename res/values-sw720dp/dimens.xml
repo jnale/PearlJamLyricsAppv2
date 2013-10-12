@@ -5,6 +5,14 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     
     <!-- Albums view -->
-    <dimen name="album_title_font_size">20sp</dimen>
-
+    <dimen name="album_title_font_size">18sp</dimen>
+    
+    <!-- song lyrics font sizes -->
+    <dimen name="song_lyrics_title">29sp</dimen>
+    <dimen name="song_lyrics_composer">17sp</dimen>
+    <dimen name="font_size_small_size">16sp</dimen>
+	<dimen name="font_size_medium_size">18sp</dimen>
+	<dimen name="font_size_large_size">24sp</dimen>
+    
 </resources>
+

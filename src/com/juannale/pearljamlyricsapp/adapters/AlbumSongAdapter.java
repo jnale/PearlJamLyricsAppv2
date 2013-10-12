@@ -5,12 +5,11 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,89 +17,96 @@ import com.juannale.pearljamlyricsapp.R;
 import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 
-public class AlbumSongAdapter extends BaseAdapter {
+public class AlbumSongAdapter extends ArrayAdapter<HashMap<String, String>> {
 	
-	private Activity activity;
-    private ArrayList<HashMap<String, String>> data;
-    private static LayoutInflater inflater=null;
-    private Drawable changeIconTo;
-    private boolean isFavorite = false;
+	Context mContext;
+    ArrayList<HashMap<String, String>> data;
+    int layoutResourceId;
+    Activity activity;
 	
     private PearlJamLyricsAppDAO dao;
     
-	public AlbumSongAdapter(Activity a, ArrayList<HashMap<String, String>> d) {
-        activity = a;
-        data=d;
-        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);   
+	public AlbumSongAdapter(Context context, int layoutResourceId, ArrayList<HashMap<String, String>> d) {
+		
+		super(context, layoutResourceId, d);
+		mContext = context;
+		this.layoutResourceId = layoutResourceId;
+        this.data = d;
     }
 
 	@Override
-	public int getCount() {
-		return data.size();
-	}
-
-	@Override
-	public Object getItem(int position) {
-		return position;
-	}
-
-	@Override
-	public long getItemId(int position) {
-		 return position;
-	}
-
-	@Override
-	public View getView(final int position, View convertView, ViewGroup parent) {
-		View vi=convertView;
+	public View getView(int position, View convertView, ViewGroup parent) {
 		
-		if(convertView==null)
-            vi = inflater.inflate(R.layout.albumsong_row, null);
+		View row = convertView;
+		ViewHolder holder;
+		activity = (Activity) mContext;
 		
-		TextView songNumberView = (TextView) vi.findViewById(R.id.songNumber);
-		TextView songTitleView = (TextView) vi.findViewById(R.id.songTitle);
-		TextView songComposerView = (TextView) vi.findViewById(R.id.songComposer);
-		
-		ImageView songAddToFavImgView = (ImageView) vi.findViewById(R.id.addToFavIcon);
-		
+		if(row==null){
+			LayoutInflater mInflate = ((Activity) mContext).getLayoutInflater();
+			row = mInflate.inflate(layoutResourceId, null);
+			
+		 	holder = new ViewHolder();
+	        holder.songNumberView = (TextView) row.findViewById(R.id.songNumber);
+	        holder.songTitleView = (TextView) row.findViewById(R.id.songTitle);
+	        holder.songComposerView = (TextView) row.findViewById(R.id.songComposer);
+	        holder.songAddToFavImgView = (ImageView) row.findViewById(R.id.addToFavIcon);
+	        row.setTag(holder);
+		} else {
+	        holder = (ViewHolder) row.getTag();
+	    }   
+	        
 		HashMap<String, String> songMap = new HashMap<String, String>();
 		songMap = data.get(position);
 		
-		songNumberView.setText(songMap.get(AppUtils.KEY_TRACK_NUMBER));
-		songTitleView.setText(songMap.get(AppUtils.KEY_SONG_TITLE));
+		holder.songNumberView.setText(songMap.get(AppUtils.KEY_TRACK_NUMBER));
+		holder.songTitleView.setText(songMap.get(AppUtils.KEY_SONG_TITLE));
 		if(!songMap.get(AppUtils.KEY_SONG_LENGHT).equals(""))
-			songTitleView.setText(songTitleView.getText() + " (" + songMap.get(AppUtils.KEY_SONG_LENGHT) + ")");
-		songComposerView.setText(songMap.get(AppUtils.KEY_SONG_COMPOSER));
+			holder.songTitleView.setText(holder.songTitleView.getText() + " (" + songMap.get(AppUtils.KEY_SONG_LENGHT) + ")");
+		holder.songComposerView.setText(songMap.get(AppUtils.KEY_SONG_COMPOSER));
 		
-		AppUtils.setRobotoLightFont(activity.getBaseContext(), songNumberView);
-		AppUtils.setRobotoLightFont(activity.getBaseContext(), songTitleView);
-		AppUtils.setRobotoLightFont(activity.getBaseContext(), songComposerView);
+		AppUtils.setRobotoLightFont(mContext, holder.songNumberView);
+		AppUtils.setRobotoLightFont(mContext, holder.songTitleView);
+		AppUtils.setRobotoLightFont(mContext, holder.songComposerView);
 		
-		dao = new PearlJamLyricsAppDAO(activity);
+		dao = new PearlJamLyricsAppDAO(mContext);
 		
-		//If the song is already in the favorite's list, change the star image
-		if (dao.isFavorite(songMap.get(AppUtils.KEY_SONG_ID))){
-			songAddToFavImgView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_sel_fav_small));
-			changeIconTo = activity.getResources().getDrawable(R.drawable.ic_add_fav_small);
-			isFavorite = true;
+		//If the song has not a assigned lyrics xml, do not show the star icon
+		if(!songMap.get(AppUtils.KEY_SONG_ID).equals("")){
+			//If the song is already in the favorite's list, change the star image
+			if (dao.isFavorite(songMap.get(AppUtils.KEY_SONG_ID)))
+				holder.songAddToFavImgView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_sel_fav_small));
+			else 
+				holder.songAddToFavImgView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_add_fav_small));
 		} else {
-			changeIconTo = activity.getResources().getDrawable(R.drawable.ic_sel_fav_small);
+			holder.songAddToFavImgView.setVisibility(View.GONE);
 		}
+		
+		final int mPosition = position;
 			
-		songAddToFavImgView.setOnClickListener(new OnClickListener() {
+		holder.songAddToFavImgView.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				ImageView icon = (ImageView) v;
-				icon.setImageDrawable(changeIconTo);
-				
-				if(!isFavorite){
-					dao.insertFavorite(data.get(position).get(AppUtils.KEY_SONG_ID), data.get(position).get(AppUtils.KEY_SONG_TITLE));
+				//Check if the song is already a favorite
+				if(!dao.isFavorite(data.get(mPosition).get(AppUtils.KEY_SONG_ID))){
+					dao.insertFavorite(data.get(mPosition).get(AppUtils.KEY_SONG_ID), data.get(mPosition).get(AppUtils.KEY_SONG_TITLE));
+					icon.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_sel_fav_small));					
 				} else {
-					dao.deleteFavorite(data.get(position).get(AppUtils.KEY_SONG_ID));
+					dao.deleteFavorite(data.get(mPosition).get(AppUtils.KEY_SONG_ID));
+					icon.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_add_fav_small));
+					
 				}
 			}
 		}); 		
-		return vi;
+		return row;
+	}
+	
+	private static class ViewHolder {
+		public TextView songNumberView;
+		public TextView songTitleView;
+		public TextView songComposerView;
+		public ImageView songAddToFavImgView;
 	}
 
 }

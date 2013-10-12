@@ -4,24 +4,56 @@
     <!-- app title -->
     <string name="app_name">Pearl Jam Lyrics</string>
     
+    <!-- dialog buttons -->
+    <string name="dialog_close">Cerrar</string>
+    <string name="dialog_yes">Si</string>
+    <string name="dialog_no">Cancelar</string>
+    
+    <!-- dialog titles -->
+    <string name="dialog_title_albumInfo">Álbum Info</string>
+    
+    <!-- feedback email -->
+    <string-array name="feedback_email_address">
+    	<item>juan.nale@gmail.com</item>    
+	</string-array>
+    <string name="feedback_email_subject">Pearl Jam Lyrics App: Feedback</string>
+    <string name="feedback_email_alertTitle">Enviar Feedback</string>
+    
     <!-- action bar labels -->
     <string name="action_settings">Ajustes</string>
     <string name="action_favorites">Favoritos</string>
-    <string name="action_songList">Lista de canciones</string>
-    <string name="action_showVideo">Ver Video</string>
+    <string name="action_songList">Lista de Canciones</string>
+    <string name="action_albums">Albums</string>
+    <string name="action_showVideo">Mostrar Video</string>
     <string name="action_hideVideo">Ocultar Video</string>
+    <string name="action_fontSize">Tamaño Fuente</string>
+    <string name="action_sendFeedback">Enviar Feedback</string>
+    <string name="action_albumInfo">Álbum Info</string>
+    <string name="action_font_size_small">Pequeño</string>
+    <string name="action_font_size_medium">Normal</string>
+    <string name="action_font_size_large">Grande</string>
     
     <!-- songs list activity -->
     <string name="filterSong">Tipea para filtrar las canciones</string>
     
     <!-- song lyrics activity -->
-    <string name="lyricsError">La letra de esta canción no está disponible en este momento&#8230;</string>
-    <string name="error_player">Hubo un error al inicializar el video de YouTube</string>
+    <string name="lyricsError">La letra de la canción no está disponible en este momento&#8230;</string>
+    <string name="error_player">Error al inicializar el video de YouTube</string>
+    
+    
+    <!-- favorites activity -->
+    <string name="favsTitle">Canciones favoritas</string>
+    <string name="howToAddFav">En las listas o en la pantalla de la letra de la canción, presiona sobre el ícono de la estrella para agregar la canción a los favoritos</string>
+    <string name="songAddedtoFavs">canción agregada a los favoritos</string>
+    <string name="songRemovedFromFavs">canción eliminada de los favoritos</string>
+    <string name="errorRemovingSong">error al eliminar la canción de los favoritos&#8230;</string>
+    <string name="errorAddingSong">error al agregar la canción a los favoritos&#8230;</string>
     
     <!-- image content descriptors -->
     <string name="album_image">album cover</string>
     <string name="album_info_icon">album info</string>
     <string name="favorite_icon">favorite icon</string>
+    <string name="delete_icon">delete icon</string>
     
     <!-- tabs labels -->
     <string-array name="album_tabs">
@@ -29,6 +61,30 @@
 		<item>singles</item>
 		<item>otros</item>
 	</string-array>
+	
+    <!-- Preferences -->
+    <string name="pref_show_video_title">Siempre mostrar el video</string>
+    <string name="pref_show_video">Selecciona esta opción si quieres siempre ver abierto el video en la pantalla la letra de cada canción</string>
+    <string name="pref_clear_favorites_title">Borrar Favoritos</string>
+    <string name="pref_clear_favorites">Eliminar todos las canciones guardadas en favoritos</string>
+    <string name="pref_clear_favorites_alert_title">Limpiar la lista de favoritos?</string>
+    <string name="pref_clear_favorites_alert_message">Vas a eliminar todos tus favoritos!</string>
+    <string name="pref_clear_favortites_message">todos los favoritos fueron eliminados</string>
+    <string name="pref_general">General</string>
+    <string name="pref_about">Acerca de la App</string>
+    <string name="pref_version_number_title">Version de la App</string>
+    <string name="pref_version_number">2.0 beta 1</string>
+    <string name="pref_developed_by_title">Desarrollado por</string>
+    <string name="pref_developed_by">Juan Ignacio Nale</string>
+    <string name="pref_developed_by_url">http://www.twitter.com/nachoNale</string>
+    <string name="pref_rate_app">Valorar la App</string>
+    <string name="pref_rate_app_url">http://play.google.com/store/apps/details?id=com.juannale.pearljamlyricsapp</string>
+    <string name="pref_open_source_lic">Licencias de Código Abierto</string>
+    <string name="lic_alertDialog_text1">Esta app es desarrollada usando software de código abierto:</string>
+    <string name="lic_libraries_text">- ActionBarSherlock\n\t(Copyright 2012 Jake Wharton)\n\n- ViewPagerIndicator\n
+        \t(Copyright 2012 Jake Wharton)\n\t(Copyright 2011 Patrik Åkerfeldt)\n\t(Copyright 2011 Francisco Figueiredo Jr.)\n\n
+        - FadingActionBar\n\t(Copyright 2013 Manuel Peinado)\n\n- ListViewAnimation\n\t(Copyright 2013 Niek Haarman)</string>
+    <string name="lic_alertDialog_text2">Cada uno de los proyectos de arriba están licenciados bajo la Apache License, Version 2.0:</string>
 	
     <!-- List of songs -->
     <string-array name="song_list">
@@ -165,7 +221,7 @@
         <item>Man Of The Hour:s205</item>
         <item>Santa Cruz:s206</item>
         <item>Golden State:s207</item>
-        <item>OlÃ©:s208</item>
+        <item>Ol&#233;:s208</item>
         <item>Better Things:s210</item>
         <item>Devil Doll:s211</item>
         <!-- Singles Soundtrack -->

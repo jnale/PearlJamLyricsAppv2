@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="8dip">
     
     <!-- Favorite icon -->
     <ImageView
@@ -11,8 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
         android:layout_marginRight="8dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:src="@drawable/ic_add_fav_small" />
     
     <!-- Song Title-->
@@ -23,9 +27,9 @@
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@id/addToFavIcon"
         android:ellipsize="end"
-        android:gravity="center_vertical|left"
+        android:gravity="left"
+        android:layout_centerVertical="true"
         android:maxLines="1"
-        android:padding="10dp"
         android:textSize="18sp" />
     
 </RelativeLayout>

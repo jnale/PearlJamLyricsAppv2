@@ -3,5 +3,16 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
+    
+    <!-- Albums view -->
+    <dimen name="album_title_font_size">16sp</dimen>
+    
+    <!-- song lyrics font sizes -->
+    <dimen name="song_lyrics_title">27sp</dimen>
+    <dimen name="song_lyrics_composer">15sp</dimen>
+    <dimen name="font_size_small_size">14sp</dimen>
+	<dimen name="font_size_medium_size">16sp</dimen>
+	<dimen name="font_size_large_size">20sp</dimen>
+    
 </resources>
+

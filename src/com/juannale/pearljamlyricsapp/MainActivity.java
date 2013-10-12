@@ -11,6 +11,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
 import com.viewpagerindicator.PageIndicator;
@@ -46,6 +47,18 @@ public class MainActivity extends SherlockFragmentActivity {
         dbAdapter = new PearlJamLyricsAppDAO(this);
         
 	}
+	
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);  //Analytics start
+	  }
+	
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance(this).activityStop(this);  //Analytics stop
+	  }
 	
 	class ViewPagerFragmentAdapter extends FragmentPagerAdapter {	    
 	    private int mCount = CONTENT.length;

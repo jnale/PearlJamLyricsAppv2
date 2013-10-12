@@ -4,84 +4,84 @@
             <id></id>
             <trackNumber>01</trackNumber>
             <title>Getaway</title>
-            <lenght></lenght>
+            <lenght>3:26</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id>s363</id>
             <trackNumber>02</trackNumber>
             <title>Mind Your Manners</title>
-            <lenght>2:39</lenght>
+            <lenght>2:38</lenght>
             <composer>Vedder</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>03</trackNumber>
             <title>My Father's Son</title>
-            <lenght></lenght>
+            <lenght>3:07</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id>s365</id>
             <trackNumber>04</trackNumber>
             <title>Sirens</title>
-            <lenght>5:51</lenght>
+            <lenght>5:41</lenght>
             <composer>Vedder</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>05</trackNumber>
             <title>Lightning Bolt</title>
-            <lenght></lenght>
+            <lenght>4:13</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>06</trackNumber>
             <title>Infallible</title>
-            <lenght></lenght>
+            <lenght>5:22</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>07</trackNumber>
             <title>Pendulum</title>
-            <lenght></lenght>
+            <lenght>3:44</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>08</trackNumber>
             <title>Swallowed Whole</title>
-            <lenght></lenght>
+            <lenght>3:51</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>09</trackNumber>
             <title>Let The Records Play</title>
-            <lenght></lenght>
+            <lenght>3:46</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
-            <id></id>
+            <id>s346</id>
             <trackNumber>10</trackNumber>
             <title>Sleeping By Myself</title>
-            <lenght></lenght>
-            <composer>Unknow</composer>
+            <lenght>3:04</lenght>
+            <composer>Vedder</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>11</trackNumber>
             <title>Yellow Moon</title>
-            <lenght></lenght>
+            <lenght>3:52</lenght>
             <composer>Unknow</composer>
       </song>
       <song>
             <id></id>
             <trackNumber>12</trackNumber>
             <title>Future Days</title>
-            <lenght></lenght>
+            <lenght>4:22</lenght>
             <composer>Unknow</composer>
       </song>
 </songs>

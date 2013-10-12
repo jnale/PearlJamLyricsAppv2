@@ -6,6 +6,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.juannale.pearljamlyricsapp.adapters.FavoriteSongAdapter;
 import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
 import com.juannale.pearljamlyricsapp.utils.AppUtils;
@@ -20,7 +23,7 @@ import com.juannale.pearljamlyricsapp.utils.AppUtils;
 public class FavoritesActivity extends SherlockActivity {
 	
 	private TextView listTitle;
-	private ListView myListView;
+	private ListView favoriteListView;
 	private FavoriteSongAdapter adapter;
 
 	@Override
@@ -39,15 +42,34 @@ public class FavoritesActivity extends SherlockActivity {
 		if (!favoriteList.isEmpty()) {
 
 			// ListView
-			myListView = (ListView) findViewById(R.id.favsList);
-			myListView.setFastScrollEnabled(true);
+			favoriteListView = (ListView) findViewById(R.id.favsList);
+			favoriteListView.setFastScrollEnabled(true);
 			// Getting adapter by passing data ArrayList
 			adapter = new FavoriteSongAdapter(this, favoriteList);
-			myListView.setAdapter(adapter);
-			myListView.setItemsCanFocus(true);
+			favoriteListView.setAdapter(adapter);
+			favoriteListView.setItemsCanFocus(true);
 			
 			TextView titleView = (TextView) findViewById(R.id.favsTitle);
 			AppUtils.setRobotoLightFont(this, titleView);
+			
+			//Click event for single list row
+			favoriteListView.setOnItemClickListener(new OnItemClickListener() {
+
+	     			@Override
+	     			public void onItemClick(AdapterView<?> parent, View view,
+	     					int position, long id) {
+
+	     				ContentValues albumMap = (ContentValues) favoriteList
+	     						.get(position);
+
+	     				if(!albumMap.get(AppUtils.KEY_SONG_ID).equals("")){
+	     					Intent intent = new Intent(FavoritesActivity.this,
+		     						SongLyricsActivity.class);
+		     				intent.putExtra(AppUtils.KEY_SONG_ID, albumMap.getAsString(AppUtils.KEY_SONG_ID));
+		     				startActivity(intent);
+	     				}
+	     			}
+	     		});
 			
 		} else {
 			// Change screen title when no favs were added already
@@ -56,8 +78,25 @@ public class FavoritesActivity extends SherlockActivity {
 			listTitle = (TextView) findViewById(R.id.favsTitle);
 			listTitle.setBackgroundColor(getResources().getColor(android.R.color.white));
 			listTitle.setText(R.string.howToAddFav);
+			listTitle.setPadding(20, 20, 20, 0);
+			listTitle.setTextSize(20);
+			
+			AppUtils.setRobotoLightFont(this, listTitle);
 		}
+		
 	}
+	
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);  //Analytics start
+	  }
+	
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance(this).activityStop(this);  //Analytics stop
+	  }
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

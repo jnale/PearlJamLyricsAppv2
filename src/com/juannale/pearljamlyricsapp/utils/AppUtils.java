@@ -36,7 +36,11 @@ public class AppUtils {
  	public static final String KEY_SONG_LYRICS = "lyrics";
  	
  	//Key for the YoutTube API --debug (replace with production one)
- 	public static final String YOUTUBE_API_KEY = "AIzaSyB75D6vuIzBqWNBGIEdO_OV6FPKP7iwjBk";
+ 	public static final String YOUTUBE_API_KEY = "AIzaSyB75D6vuIzBqWNBGIEdO_OV6FPKP7iwjBk"; //debug
+ 	//public static final String YOUTUBE_API_KEY = "AIzaSyBSuFjtS9fmHe1Aoj0YvIJN8iHSYv0eKfc"; //prod
+ 	
+ 	//Song Lyrics font size
+ 	public static final String KEY_SONG_LYRICS_FONT_SIZE = "fontSize";
 
 	//Set Roboto Regular Font
     public static void setRobotoRegularFont (Context context, View view)

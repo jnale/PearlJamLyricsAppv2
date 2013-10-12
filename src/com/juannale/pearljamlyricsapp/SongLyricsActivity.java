@@ -7,10 +7,13 @@ import org.w3c.dom.NodeList;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.juannale.pearljamlyricsapp.dao.PearlJamLyricsAppDAO;
@@ -28,16 +32,18 @@ import com.juannale.pearljamlyricsapp.utils.XMLParser;
 
 public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 
-	TextView songTitleTxtView;
-	TextView songComposerTxtView;
-	TextView songLyricsTxtView;
-	YouTubePlayerView youTubeView;
-	ImageView addToFavIconImgView;
-	
-	String songId;
-	String songTitle;
+	private TextView songTitleTxtView;
+	private TextView songComposerTxtView;
+	private TextView songLyricsTxtView;
+	private YouTubePlayerView youTubeView;
+	private ImageView addToFavIconImgView;
+
+	private String songId;
+	private String songTitle;
 	
 	private String youTubeVideoCode="";
+	
+	SharedPreferences myPreferences;
 	
 	@SuppressLint("NewApi")
 	@Override
@@ -48,6 +54,9 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		//Remove the app title and show the home as up icon
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        
+        //Get App Preferences
+        myPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         
         //Activity transition
 //        overridePendingTransition(R.anim.anim_in, 0);
@@ -66,6 +75,14 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		AppUtils.setRobotoThinFont(this, songComposerTxtView);
 		AppUtils.setRobotoLightFont(this, songLyricsTxtView);
 		
+		//If there is a change in the font size, set the new size...
+		if(myPreferences.getFloat(AppUtils.KEY_SONG_LYRICS_FONT_SIZE
+				, getResources().getDimension(R.dimen.font_size_medium_size))!= getResources()
+				.getDimension(R.dimen.font_size_medium_size))
+			
+			songLyricsTxtView.setTextSize(TypedValue.COMPLEX_UNIT_PX, myPreferences.getFloat(AppUtils.KEY_SONG_LYRICS_FONT_SIZE
+					, getResources().getDimensionPixelSize(R.dimen.font_size_medium_size)));
+		
 		try {
 			XMLParser parser = new XMLParser();
 
@@ -79,7 +96,7 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 				Element e = (Element) nl.item(0);
 
 				// Set values to each textView
-				songTitleTxtView.setText(parser.getValue(e, AppUtils.KEY_SONG_TITLE).toUpperCase());
+				songTitleTxtView.setText(parser.getValue(e, AppUtils.KEY_SONG_TITLE));
 				if (parser.getValue(e, AppUtils.KEY_SONG_COMPOSER) != null)
 					songComposerTxtView.setText("(" + parser.getValue(e, AppUtils.KEY_SONG_COMPOSER)
 							+ ")");
@@ -104,6 +121,11 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		
 		if(!youTubeVideoCode.equals("")){
 			youTubeView.initialize(AppUtils.YOUTUBE_API_KEY, this);
+			
+			//Check the preference to show or not the video
+			if(myPreferences.getBoolean("pref_show_video", false)){
+				youTubeView.setVisibility(View.VISIBLE);
+			}
 		}
 		
 		//Call again the onCreateOptionsMenu
@@ -142,7 +164,8 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 						toastMessage = getResources().getString(
 								R.string.songRemovedFromFavs);
 					} else{
-						toastMessage = "error deleting the song...";
+						toastMessage = getResources().getString(
+								R.string.errorRemovingSong);
 					}
 					
 				} else {
@@ -162,8 +185,8 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 								R.string.songAddedtoFavs);
 					} else {
 						// set the toast message 
-						toastMessage = "error adding the song...";//getResources().getString(
-								//R.string.songAddedtoFavs);
+						toastMessage = getResources().getString(
+								R.string.errorAddingSong);
 					}
 				}
 				// the song was added to the favorites
@@ -176,12 +199,32 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 	}
 	
 	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);  //Analytics start
+	  }
+	
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance(this).activityStop(this);  //Analytics stop
+	  }
+	
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getSupportMenuInflater().inflate(R.menu.song_lyrics_menu, menu);
         
         if(youTubeVideoCode.equals("")){
         	menu.getItem(0).setVisible(false);
+        } else {
+        	 //Check the preference to change the icon and text of the item
+    		if(myPreferences.getBoolean("pref_show_video", false)){
+    			menu.findItem(R.id.action_video)
+    				.setIcon(R.drawable.ic_action_youtube2)
+    				.setTitle(getResources().getString(R.string.action_hideVideo));
+    		}
         }
+        
         return true;
     }
     
@@ -207,11 +250,12 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 				if(youTubeView.getVisibility()==View.GONE){
 					youTubeView.setVisibility(View.VISIBLE);
 					item.setIcon(R.drawable.ic_action_youtube2);
-					item.setTitle("Hide Video");
+					item.setTitle(getResources().getString(R.string.action_hideVideo));
 				}
 				else{
 					youTubeView.setVisibility(View.GONE);
 					item.setIcon(R.drawable.ic_action_youtube);
+					item.setTitle(getResources().getString(R.string.action_showVideo));
 				}
 				return true;     
 				
@@ -259,17 +303,22 @@ public class SongLyricsActivity extends YouTubeFailureRecoveryActivity {
 		
 		float fontSize=14;
 		int itemId = item.getItemId();
-		songLyricsTxtView = (TextView) findViewById(R.id.songLyrics);
+		SharedPreferences.Editor editor = myPreferences.edit();
 		
 		//Set the size depending on the menu item selected
 		if(itemId == R.id.action_font_size_small)
-			fontSize = getResources().getDimension(R.dimen.font_size_small_size);
+			fontSize = getResources().getDimensionPixelSize(R.dimen.font_size_small_size);
 		else if	(itemId == R.id.action_font_size_medium)	
-			fontSize = getResources().getDimension(R.dimen.font_size_medium_size);
+			fontSize = getResources().getDimensionPixelSize(R.dimen.font_size_medium_size);
 		else if	(itemId == R.id.action_font_size_large)
-			fontSize = getResources().getDimension(R.dimen.font_size_large_size);
+			fontSize = getResources().getDimensionPixelSize(R.dimen.font_size_large_size);
 			
-		songLyricsTxtView.setTextSize(fontSize);
+		//Set the text size in pixels
+		songLyricsTxtView = (TextView) findViewById(R.id.songLyrics);
+		songLyricsTxtView.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
+		//Save the change in the preferences
+		editor.putFloat(AppUtils.KEY_SONG_LYRICS_FONT_SIZE, fontSize);
+		editor.commit();
 		return true;
 	}
    
